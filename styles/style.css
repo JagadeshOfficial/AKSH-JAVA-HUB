@@ -1,0 +1,1023 @@
+
+body {
+    background: #f9fafb;
+}
+
+.btn-primary:hover {
+    background: #3b3abf;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #4F46E5;
+}
+
+.course_card_scroll:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+.testimonials_item {
+    position: relative;
+}
+
+.quote {
+    font-size: 3rem;
+    color: #4F46E5;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+}
+
+.testimonial_name {
+    font-weight: 600;
+    color: #333;
+}
+
+.testimonial_title {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer_list_item a:hover,
+.footer_contact_item a:hover {
+    color: #F59E42;
+}
+
+.footer_social a:hover {
+    color: #F59E42;
+}
+
+.sidebar .list-group-item {
+    border: none;
+    padding: 10px 0;
+}
+
+.sidebar .list-group-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar .list-group-item a:hover {
+    color: #4F46E5;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact_form input,
+.contact_form textarea {
+    border-radius: 5px;
+}
+
+.contact_form button {
+    width: 100%;
+}
+
+/* Table of Contents
+1. General Styles
+2. Header (Existing)
+3. Home Section (Hero)
+4. Feature Boxes
+5. Popular Tutorials Section
+6. Services (Why Choose Us)
+7. Testimonials
+8. Footer
+*/
+
+/* 1. General Styles */
+:root {
+    --primary-color: #4F46E5;
+    --secondary-color: #F59E42;
+    --dark-blue: #1E3A8A;
+    --text-dark: #111827;
+    --text-light: #6B7280;
+    --background-light: #F9FAFB;
+    --white: #FFFFFF;
+    --border-color: #E5E7EB;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page_section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.section_title {
+    margin-bottom: 60px;
+}
+
+.section_title h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+/* 3. Home Section (Hero) */
+.home {
+    width: 100%;
+    height: 90vh;
+}
+
+.hero_slide {
+    position: relative;
+    height: 90vh;
+}
+
+.hero_slide_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.hero_slide_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+.hero_slide_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero_slide_content {
+    color: var(--white);
+}
+
+.hero_slide_content h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero_slide_content h1 span {
+    color: var(--secondary-color);
+}
+
+.hero_slide_content p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.btn-custom {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.btn-secondary-custom {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+    margin-left: 15px;
+}
+
+.btn-secondary-custom:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.hero_slider_nav {
+    color: var(--white);
+    opacity: 0.6;
+}
+
+.hero_slider_nav:hover {
+    opacity: 1;
+}
+
+
+/* 4. Feature Boxes */
+.hero_boxes {
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero_box {
+    background: var(--white);
+    padding: 40px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.hero_box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hero_box .icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.hero_box_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.hero_box_text {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* 5. Popular Tutorials Section */
+.popular.page_section {
+    background-color: var(--background-light);
+}
+
+.course_box .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+}
+
+.course_box .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-title a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: var(--primary-color);
+}
+
+.card-text {
+    color: var(--text-light);
+    margin-top: 10px;
+}
+
+.price_box {
+    background: var(--background-light);
+    padding: 15px 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.course_author_image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.course_author_name {
+    margin-left: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.course_price {
+    margin-left: auto;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* 6. Services (Why Choose Us) */
+.service_item {
+    padding: 20px;
+}
+
+.service_icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.service_item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.service_item p {
+    color: var(--text-light);
+}
+
+/* 7. Testimonials */
+.testimonials.page_section {
+    position: relative;
+}
+
+.testimonials_background_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.testimonials_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 58, 138, 0.9);
+    /* dark-blue with opacity */
+    z-index: 1;
+}
+
+.testimonials .section_title h1,
+.testimonials_item {
+    color: var(--white);
+}
+
+.testimonials_item {
+    padding: 0 50px;
+}
+
+.testimonials_text {
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.testimonial_user {
+    margin-top: 20px;
+}
+
+.testimonial_image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+}
+
+.testimonial_name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.testimonial_title {
+    font-weight: 400;
+    color: var(--white);
+    opacity: 0.8;
+}
+
+/* 8. Footer */
+.footer {
+    background: var(--text-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 30px 0;
+}
+
+.footer .logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-left: 10px;
+}
+
+.footer_about_text {
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.footer_column_title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 25px;
+}
+
+.footer_column_list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer_column_list li {
+    margin-bottom: 12px;
+}
+
+.footer_column_list li a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.footer_column_list li a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.footer_column_list li i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.footer_bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 50px;
+}
+
+.social_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.social_list li {
+    margin-left: 15px;
+}
+
+.social_list li a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+.social_list li a:hover {
+    color: var(--white);
+}
+
+
+/* Fix header layout */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* keeps navbar on top */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo_container img {
+    height: 60px;
+    width: auto;
+}
+
+/* Search bar */
+.header_search {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 30px;
+}
+
+.search_form {
+    display: flex;
+}
+
+.search_input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.search_button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+/* Nav items */
+.main_nav_list {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin-left: 440px;
+    padding: 17px;
+}
+
+.main_nav_item a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.main_nav_item a:hover {
+    color: var(--primary-color);
+}
+
+
+
+
+
+.mr-3, .mx-3 {
+    margin-right: 12rem !important;
+}
+
+
+
+
+
+
+/* =================================
+   HERO FEATURE BOXES (V2 - WITH BACKGROUND COLORS)
+   ================================= */
+
+/* --- Step 1: Define Your Colors --- */
+:root {
+    --primary-color: #4F46E5;
+    --text-dark: #111827;
+    --text-light: #6B7280;
+    --background-light: #F9FAFB;
+    --white: #FFFFFF;
+    
+    /* NEW: Soft background colors for each box */
+    --box1-bg: #eef2ff; /* Light Indigo */
+    --box2-bg: #f0fdf4; /* Light Green */
+    --box3-bg: #fffbeb; /* Light Amber */
+}
+
+/* --- Step 2: Style the Container --- */
+.hero_boxes {
+    padding-top: 80px;  /* Increased padding for better spacing */
+    padding-bottom: 80px;
+    background-color: var(--white); 
+}
+
+.hero_box_col {
+    margin-bottom: 30px;
+}
+
+
+/* --- Step 3: The Main Box Design --- */
+.hero_box {
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 16px; /* Slightly more rounded */
+    height: 100%;
+    border: 1px solid transparent; /* Transparent border by default */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    /* Smooth transition for ALL properties */
+    transition: all 0.4s ease-in-out; 
+}
+
+/* --- Step 3a: Individual Background Colors for Each Box --- */
+.hero_box_col:nth-child(1) .hero_box {
+    background-color: var(--box1-bg);
+}
+.hero_box_col:nth-child(2) .hero_box {
+    background-color: var(--box2-bg);
+}
+.hero_box_col:nth-child(3) .hero_box {
+    background-color: var(--box3-bg);
+}
+
+
+/* --- Step 4: Enhanced Hover Effect with Gradients --- */
+.hero_box:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 30px rgba(79, 70, 229, 0.2); /* Shadow color matches the primary color */
+    background: linear-gradient(45deg, var(--primary-color), #818cf8); /* Vibrant gradient background */
+    border-color: var(--primary-color);
+}
+
+
+/* --- Step 5: Style the Icon, Title, and Text --- */
+.hero_box .icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    display: inline-block;
+    transition: color 0.4s ease-in-out; /* Smooth color transition */
+}
+
+.hero_box_title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    transition: color 0.4s ease-in-out;
+}
+
+.hero_box_text {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: color 0.4s ease-in-out;
+}
+
+/* --- Step 6: Invert Colors on Hover for Readability --- */
+.hero_box:hover .icon,
+.hero_box:hover .hero_box_title,
+.hero_box:hover .hero_box_text {
+    color: var(--white); /* All text and icon becomes white on hover */
+}
+
+
+
+/* =================================
+   POPULAR TUTORIALS SECTION (V2 - SMALLER CARDS)
+   ================================= */
+
+/* --- Section Styles --- */
+.popular.page_section {
+    background-color: #f8f9fa; 
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+
+.section_title h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+}
+
+
+/* --- Card Base Styles --- */
+.course_box {
+    margin-bottom: 30px;
+}
+
+.course_box .card {
+    border: none;
+    border-radius: 12px; /* CHANGED - Was 15px */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* CHANGED - Softer shadow */
+    overflow: hidden; 
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* --- Card Hover Effect --- */
+.course_box .card:hover {
+    transform: translateY(-8px); /* CHANGED - Was -10px */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* CHANGED - Softer shadow */
+}
+
+
+/* --- Image Styles & Hover Effect --- */
+.card_img_container {
+    overflow: hidden; 
+    height: 180px; /* CHANGED - Was 220px */
+    position: relative;
+}
+
+.card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+    transition: transform 0.4s ease;
+}
+
+.course_box .card:hover .card-img-top {
+    transform: scale(1.05); 
+}
+
+
+/* --- Card Content Styles --- */
+.card-body {
+    padding: 20px; /* CHANGED - Was 25px */
+}
+
+.card-title a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem; /* CHANGED - Was 1.4rem */
+    font-weight: 700;
+    color: var(--text-dark, #111827);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+    color: var(--primary-color, #4F46E5);
+}
+
+.card-text {
+    color: var(--text-light, #6B7280);
+    margin-top: 8px; /* CHANGED - Was 10px */
+    font-size: 0.9rem; /* CHANGED - Was 0.95rem */
+}
+
+
+/* --- Card Footer (Price Box) Styles --- */
+.price_box {
+    padding: 12px 20px; /* CHANGED - Was 15px 25px */
+    border-top: 1px solid #e5e7eb;
+    background-color: #fafafa;
+}
+
+.course_author_image img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.course_author_name {
+    margin-left: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.course_price {
+    margin-left: auto;
+    background-color: #e0fdf4; 
+    color: #059669; 
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+/* =================================
+   SERVICES SECTION (WHY CHOOSE US)
+   ================================= */
+
+/* --- Section Styles --- */
+.services.page_section {
+    padding-top: 100px;
+    padding-bottom: 70px;
+    background-color: var(--white, #FFFFFF); /* Clean white background */
+}
+
+/* --- Service Item (Card) Styles --- */
+.service_item {
+    margin-bottom: 30px;
+}
+
+.service_item_inner {
+    padding: 40px 25px;
+    border: 1px solid var(--border-color, #E5E7EB);
+    border-radius: 16px;
+    height: 100%;
+    background-color: var(--white, #FFFFFF);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* --- Striking Icon Styles --- */
+.service_icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px auto;
+    border-radius: 50%; /* Makes the container a circle */
+    
+    /* Puts the icon perfectly in the center of the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Colors and transition */
+    background-color: #eef2ff; /* A light shade of the primary color */
+    color: var(--primary-color, #4F46E5);
+    font-size: 2rem;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+
+/* --- Text Styles --- */
+.service_item h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark, #111827);
+}
+
+.service_item p {
+    color: var(--text-light, #6B7280);
+    line-height: 1.6;
+}
+
+
+/* --- Dynamic Hover Effects --- */
+.service_item_inner:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service_item_inner:hover .service_icon {
+    background-color: var(--primary-color, #4F46E5); /* Circle fills with primary color */
+    color: var(--white, #FFFFFF); /* Icon turns white */
+}
+
+/* =================================
+   FOOTER SECTION
+   ================================= */
+
+/* --- Main Footer Container --- */
+.footer {
+    padding: 80px 0 0 0;
+    background: #111827; /* A very dark, near-black blue */
+    color: #9ca3af; /* Soft grey for text */
+}
+
+/* --- Logo & About Text --- */
+.footer .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.footer .logo img {
+    height: 40px;
+}
+.footer .logo span {
+    color: var(--white, #FFFFFF);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.footer_about_text {
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* --- Column Titles & Link Lists --- */
+.footer_column_title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white, #FFFFFF);
+    margin-bottom: 25px;
+}
+.footer_column_list {
+    list-style: none;
+    padding: 0;
+}
+.footer_column_list li {
+    margin-bottom: 12px;
+}
+.footer_column_list li a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer_column_list li a:hover {
+    color: var(--primary-color, #4F46E5);
+}
+
+/* --- Newsletter Form --- */
+.newsletter_form {
+    display: flex;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: #1f2937; /* Slightly lighter than footer bg */
+    padding: 5px;
+}
+.newsletter_form input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: var(--white, #FFFFFF);
+    padding: 0 15px;
+    height: 45px;
+    outline: none;
+}
+.newsletter_form input::placeholder {
+    color: #6b7280;
+}
+.newsletter_form button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: var(--primary-color, #4F46E5);
+    color: var(--white, #FFFFFF);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+.newsletter_form button:hover {
+    background: #3730a3; /* Darker primary color */
+}
+
+
+/* --- Footer Bar (Bottom) --- */
+.footer_bar {
+    padding: 30px 0;
+    margin-top: 60px;
+    border-top: 1px solid #374151; /* Darker border */
+}
+.footer_copyright span {
+    font-size: 0.9rem;
+}
+
+/* --- Social & Contact Icons --- */
+.social_contact_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.social_contact_list li {
+    margin-left: 10px;
+}
+.social_contact_list li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #374151;
+    color: #9ca3af;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.social_contact_list li a:hover {
+    background-color: var(--primary-color, #4F46E5);
+    color: var(--white, #FFFFFF);
+}
+
+
+/* Style for the new anchor tag wrapping the card */
+.course_box .card-link {
+    display: block; /* Makes the link fill the container */
+    text-decoration: none; /* Removes the default underline */
+    color: inherit; /* Makes the text use its original color, not blue */
+}
+
+/* Optional: Add a clean hover effect for better UX */
+.course_box .card-link:hover .card {
+    transform: translateY(-5px); /* Lifts the card up slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Adds a more pronounced shadow */
+    transition: all 0.3s ease-in-out; /* Makes the effect smooth */
+}
+
+/* Ensure the card itself has a default transition */
+.course_box .card {
+    transition: all 0.3s ease-in-out;
+}

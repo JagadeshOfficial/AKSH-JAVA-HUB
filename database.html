@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AKSH Java Hub - Database Engineering Path</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Database Engineering Tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <style>
+        .page_header {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            margin-top: 90px;
+        }
+
+        .page_header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+        }
+
+        .page_header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .tutorials_section {
+            padding: 60px 0;
+        }
+
+        .tutorials_section .container-fluid {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main_cat_nav_accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            background: #fff;
+            position: sticky;
+            top: 110px;
+        }
+
+        .main_cat_nav_accordion .main_cat_list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main_cat_link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none !important;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .main_cat_link .fa-chevron-down {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .main_cat_link[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .main_cat_link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .main_cat_link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .main_cat_link.active .fas,
+        .main_cat_link.active .fab {
+            color: #fff;
+        }
+
+        .main_cat_link .fas,
+        .main_cat_link .fab {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .sub_topic_list {
+            list-style: none;
+            padding: 10px 0 10px 35px;
+            margin-top: 5px;
+        }
+
+        .sub_topic_list li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sub_topic_list li a:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .sub_topic_list li a.active {
+            background-color: #eef2ff;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .tutorial_content_area {
+            padding-left: 20px;
+        }
+
+        .tutorial_content_pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tutorial_content_pane.active {
+            display: block;
+        }
+
+        .tutorial_content_pane h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items: center">
+                <div class="logo_container">
+                    <a href="index.html" class="logo d-flex align-items-center"
+                        style="gap: 10px; text-decoration: none;">
+                        <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                            style="height:75px; width:auto; object-fit:contain;">
+                    </a>
+                </div>
+                <nav class="main_nav_container ml-auto">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="index.html">Home</a></li>
+                            <!-- <li class="main_nav_item active"><a href="tutorials.html">Tutorials</a></li>-->
+                            <li class="main_nav_item"><a href="courses.html">Courses</a></li>
+                            <li class="main_nav_item"><a href="interview-questions.html">Interview Questions</a></li>
+                            <li class="main_nav_item"><a href="about.html">About Us</a></li>
+                            <li class="main_nav_item"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="page_header">
+                <div class="container">
+                    <h1>Database Engineering Path</h1>
+                    <p>Master relational and NoSQL databases, from fundamental queries to advanced data modeling.</p>
+                </div>
+            </div>
+
+            <div class="tutorials_section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <nav class="main_cat_nav_accordion">
+                                <ul class="main_cat_list">
+                                    <li>
+                                        <a href="#submenu-sql-fundamentals" data-toggle="collapse" aria-expanded="true"
+                                            class="main_cat_link active">
+                                            <i class="fas fa-database"></i> SQL Fundamentals <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-sql-fundamentals" class="collapse show sub_topic_list">
+                                            <li><a href="#" class="active" data-target="content-sql-intro">1.
+                                                    Introduction to SQL</a></li>
+                                            <li><a href="#" data-target="content-sql-ddl-dml">2. DDL & DML Commands</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sql-select">3. The SELECT Statement</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sql-filtering">4. Filtering Data with
+                                                    WHERE</a></li>
+                                            <li><a href="#" data-target="content-sql-sorting">5. Sorting Data with ORDER
+                                                    BY</a></li>
+                                            <li><a href="#" data-target="content-sql-joins">6. SQL Joins</a></li>
+                                            <li><a href="#" data-target="content-sql-aggregation">7. Aggregate
+                                                    Functions</a></li>
+                                            <li><a href="#" data-target="content-sql-grouping">8. Grouping Data with
+                                                    GROUP BY</a></li>
+                                            <li><a href="#" data-target="content-sql-subqueries">9. Subqueries</a></li>
+                                            <li><a href="#" data-target="content-sql-normalization">10.
+                                                    Normalization</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-mysql" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-cogs"></i> MySQL <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-mysql" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-mysql-intro">1. Introduction to
+                                                    MySQL</a></li>
+                                            <li><a href="#" data-target="content-mysql-setup">2. Installation &
+                                                    Setup</a></li>
+                                            <li><a href="#" data-target="content-mysql-datatypes">3. Data Types</a></li>
+                                            <li><a href="#" data-target="content-mysql-crud">4. CRUD Operations</a></li>
+                                            <li><a href="#" data-target="content-mysql-indexes">5. Indexes and
+                                                    Performance</a></li>
+                                            <li><a href="#" data-target="content-mysql-storage">6. Storage Engines
+                                                    (InnoDB vs MyISAM)</a></li>
+                                            <li><a href="#" data-target="content-mysql-users">7. User Management &
+                                                    Privileges</a></li>
+                                            <li><a href="#" data-target="content-mysql-backup">8. Backup and Restore</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-mysql-functions">9. Built-in
+                                                    Functions</a></li>
+                                            <li><a href="#" data-target="content-mysql-procedures">10. Stored
+                                                    Procedures</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-postgres" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-anchor"></i> PostgreSQL <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-postgres" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-pg-intro">1. Why PostgreSQL?</a></li>
+                                            <li><a href="#" data-target="content-pg-setup">2. Installation & Setup</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-pg-datatypes">3. Advanced Data Types
+                                                    (JSONB, Array)</a></li>
+                                            <li><a href="#" data-target="content-pg-crud">4. CRUD Operations</a></li>
+                                            <li><a href="#" data-target="content-pg-ctes">5. Common Table Expressions
+                                                    (CTEs)</a></li>
+                                            <li><a href="#" data-target="content-pg-window">6. Window Functions</a></li>
+                                            <li><a href="#" data-target="content-pg-extensions">7. Extensions
+                                                    (PostGIS)</a></li>
+                                            <li><a href="#" data-target="content-pg-transactions">8. Transactions &
+                                                    Concurrency</a></li>
+                                            <li><a href="#" data-target="content-pg-roles">9. Roles and Permissions</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-pg-performance">10. Performance
+                                                    Tuning</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-mongodb" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-leaf"></i> MongoDB (NoSQL) <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-mongodb" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-mdb-intro">1. Introduction to NoSQL &
+                                                    MongoDB</a></li>
+                                            <li><a href="#" data-target="content-mdb-setup">2. Installation & Setup</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-mdb-json-bson">3. JSON, BSON, and
+                                                    Documents</a></li>
+                                            <li><a href="#" data-target="content-mdb-crud">4. CRUD Operations</a></li>
+                                            <li><a href="#" data-target="content-mdb-queries">5. Advanced Queries</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-mdb-aggregation">6. Aggregation
+                                                    Framework</a></li>
+                                            <li><a href="#" data-target="content-mdb-indexes">7. Indexes in MongoDB</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-mdb-modeling">8. Data Modeling</a></li>
+                                            <li><a href="#" data-target="content-mdb-replication">9. Replication</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-mdb-sharding">10. Sharding</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="tutorial_content_area">
+                                <div id="content-sql-intro" class="tutorial_content_pane active">
+                                    <h2>1. Introduction to SQL</h2>
+                                    <p>SQL (Structured Query Language) is the universal language for managing relational
+                                        databases. It allows you to perform actions like querying data, inserting
+                                        records, updating information, and defining database structures.</p>
+                                    <blockquote>SQL is a declarative language, meaning you describe what you want, and
+                                        the database engine figures out how to get it.</blockquote>
+                                </div>
+                                <div id="content-sql-ddl-dml" class="tutorial_content_pane">
+                                    <h2>2. DDL & DML Commands</h2>
+                                    <p>SQL commands are split into categories. DDL (Data Definition Language) manages
+                                        structure (e.g., `CREATE TABLE`, `ALTER TABLE`). DML (Data Manipulation
+                                        Language) manages the data itself (e.g., `INSERT`, `UPDATE`, `DELETE`).</p>
+                                </div>
+                                <div id="content-sql-select" class="tutorial_content_pane">
+                                    <h2>3. The SELECT Statement</h2>
+                                    <p>The `SELECT` statement is used to retrieve data from a database. You specify
+                                        which columns you want and from which table. For example: `SELECT name, email
+                                        FROM users;`</p>
+                                </div>
+                                <div id="content-sql-filtering" class="tutorial_content_pane">
+                                    <h2>4. Filtering Data with WHERE</h2>
+                                    <p>The `WHERE` clause is used with `SELECT`, `UPDATE`, and `DELETE` to filter
+                                        records and apply actions only to the rows that meet specific conditions.
+                                        Example: `SELECT * FROM products WHERE price > 50;`</p>
+                                </div>
+                                <div id="content-sql-sorting" class="tutorial_content_pane">
+                                    <h2>5. Sorting Data with ORDER BY</h2>
+                                    <p>The `ORDER BY` clause is used to sort the result set of a query in ascending
+                                        (`ASC`) or descending (`DESC`) order based on one or more columns.</p>
+                                </div>
+                                <div id="content-sql-joins" class="tutorial_content_pane">
+                                    <h2>6. SQL Joins</h2>
+                                    <p>Joins are used to combine rows from two or more tables based on a related column.
+                                        The most common types are `INNER JOIN` (for matching values) and `LEFT JOIN`
+                                        (for all rows from the left table).</p>
+                                </div>
+                                <div id="content-sql-aggregation" class="tutorial_content_pane">
+                                    <h2>7. Aggregate Functions</h2>
+                                    <p>These functions perform a calculation on a set of rows and return a single
+                                        summary value. Key functions include `COUNT()`, `SUM()`, `AVG()`, `MIN()`, and
+                                        `MAX()`.</p>
+                                </div>
+                                <div id="content-sql-grouping" class="tutorial_content_pane">
+                                    <h2>8. Grouping Data with GROUP BY</h2>
+                                    <p>The `GROUP BY` clause groups rows that have the same values into summary rows.
+                                        It's often used with aggregate functions to produce summary reports, like the
+                                        total sales per region.</p>
+                                </div>
+                                <div id="content-sql-subqueries" class="tutorial_content_pane">
+                                    <h2>9. Subqueries</h2>
+                                    <p>A subquery is a `SELECT` statement nested inside another statement. It allows you
+                                        to perform complex queries where the result of one query is used as a condition
+                                        in another.</p>
+                                </div>
+                                <div id="content-sql-normalization" class="tutorial_content_pane">
+                                    <h2>10. Normalization</h2>
+                                    <p>Database normalization is the process of organizing tables to reduce data
+                                        redundancy and improve data integrity. It involves dividing large tables into
+                                        smaller, well-structured ones, following rules known as Normal Forms (1NF, 2NF,
+                                        3NF).</p>
+                                </div>
+
+                                <div id="content-mysql-intro" class="tutorial_content_pane">
+                                    <h2>1. Introduction to MySQL</h2>
+                                    <p>MySQL is the world's most popular open-source relational database management
+                                        system (RDBMS). It's known for its reliability, performance, and ease of use,
+                                        making it a cornerstone of many web applications, including those built with
+                                        PHP, Java, and Python.</p>
+                                </div>
+                                <div id="content-mysql-setup" class="tutorial_content_pane">
+                                    <h2>2. Installation & Setup</h2>
+                                    <p>Installing MySQL involves downloading the community server, running the
+                                        installer, and configuring a secure root password. Once installed, you can
+                                        interact with it using the command-line client or a graphical tool like MySQL
+                                        Workbench.</p>
+                                </div>
+                                <div id="content-mysql-datatypes" class="tutorial_content_pane">
+                                    <h2>3. Data Types</h2>
+                                    <p>MySQL supports various data types, including numeric types (`INT`, `DECIMAL`),
+                                        date and time types (`DATE`, `DATETIME`), and string types (`VARCHAR`, `TEXT`,
+                                        `ENUM`). Choosing the correct data type is essential for data integrity and
+                                        performance.</p>
+                                </div>
+                                <div id="content-mysql-crud" class="tutorial_content_pane">
+                                    <h2>4. CRUD Operations</h2>
+                                    <p>CRUD stands for Create, Read, Update, and Delete, which are the four basic
+                                        functions of persistent storage. In MySQL, these are performed using `INSERT`
+                                        (Create), `SELECT` (Read), `UPDATE` (Update), and `DELETE` (Delete) statements.
+                                    </p>
+                                </div>
+                                <div id="content-mysql-indexes" class="tutorial_content_pane">
+                                    <h2>5. Indexes and Performance</h2>
+                                    <p>Indexes in MySQL are used to find rows with specific column values quickly.
+                                        Without an index, MySQL must begin with the first row and then read through the
+                                        entire table to find the relevant rows. Proper indexing is the key to
+                                        high-performance queries.</p>
+                                </div>
+                                <div id="content-mysql-storage" class="tutorial_content_pane">
+                                    <h2>6. Storage Engines (InnoDB vs MyISAM)</h2>
+                                    <p>MySQL uses storage engines to handle the SQL operations for different table
+                                        types. InnoDB is the default and most-used engine; it is ACID-compliant and
+                                        supports transactions and foreign keys. MyISAM is older and faster for
+                                        read-heavy workloads but lacks transactional support.</p>
+                                </div>
+                                <div id="content-mysql-users" class="tutorial_content_pane">
+                                    <h2>7. User Management & Privileges</h2>
+                                    <p>MySQL allows you to create multiple user accounts and grant them specific
+                                        permissions (privileges) on databases and tables. Commands like `CREATE USER`
+                                        and `GRANT` are used to manage access control securely.</p>
+                                </div>
+                                <div id="content-mysql-backup" class="tutorial_content_pane">
+                                    <h2>8. Backup and Restore</h2>
+                                    <p>Regular backups are critical. The `mysqldump` command-line utility is a common
+                                        way to create a logical backup of a database, which generates a file of SQL
+                                        statements. This file can then be used to restore the database on any MySQL
+                                        server.</p>
+                                </div>
+                                <div id="content-mysql-functions" class="tutorial_content_pane">
+                                    <h2>9. Built-in Functions</h2>
+                                    <p>MySQL provides a rich library of built-in functions for string manipulation
+                                        (`CONCAT`, `SUBSTRING`), numeric calculations (`ROUND`, `CEIL`), and date/time
+                                        formatting (`DATE_FORMAT`, `NOW()`), which can be used directly in your queries.
+                                    </p>
+                                </div>
+                                <div id="content-mysql-procedures" class="tutorial_content_pane">
+                                    <h2>10. Stored Procedures</h2>
+                                    <p>A stored procedure is a prepared SQL code that you can save, so the code can be
+                                        reused over and over again. It can accept input parameters and return values,
+                                        allowing you to encapsulate complex business logic directly within the database.
+                                    </p>
+                                </div>
+
+                                <div id="content-pg-intro" class="tutorial_content_pane">
+                                    <h2>1. Why PostgreSQL?</h2>
+                                    <p>PostgreSQL, often called "Postgres," is a powerful, open-source object-relational
+                                        database system known for its robustness, feature set, and extensibility. It's
+                                        highly compliant with SQL standards and offers advanced features not always
+                                        found in other systems, like JSONB support and window functions.</p>
+                                </div>
+                                <div id="content-pg-setup" class="tutorial_content_pane">
+                                    <h2>2. Installation & Setup</h2>
+                                    <p>Setting up PostgreSQL involves downloading the installer for your operating
+                                        system and initializing a database cluster. The primary tool for interacting
+                                        with Postgres is the `psql` command-line utility, though graphical tools like
+                                        pgAdmin are also widely used.</p>
+                                </div>
+                                <div id="content-pg-datatypes" class="tutorial_content_pane">
+                                    <h2>3. Advanced Data Types (JSONB, Array)</h2>
+                                    <p>A key strength of PostgreSQL is its support for advanced data types. You can
+                                        store arrays directly in a column, and the `JSONB` type allows you to store and
+                                        query complex JSON documents efficiently, blending the worlds of relational and
+                                        document databases.</p>
+                                </div>
+                                <div id="content-pg-crud" class="tutorial_content_pane">
+                                    <h2>4. CRUD Operations</h2>
+                                    <p>Like other SQL databases, CRUD operations in PostgreSQL are handled by `INSERT`,
+                                        `SELECT`, `UPDATE`, and `DELETE`. Postgres also has useful features like the
+                                        `RETURNING` clause, which can return values from rows that were modified by an
+                                        insert, update, or delete.</p>
+                                </div>
+                                <div id="content-pg-ctes" class="tutorial_content_pane">
+                                    <h2>5. Common Table Expressions (CTEs)</h2>
+                                    <p>CTEs, defined with the `WITH` clause, allow you to create temporary, named result
+                                        sets that exist only for the duration of a single query. They are incredibly
+                                        useful for breaking down complex queries into simple, logical, and readable
+                                        steps.</p>
+                                </div>
+                                <div id="content-pg-window" class="tutorial_content_pane">
+                                    <h2>6. Window Functions</h2>
+                                    <p>Window functions perform a calculation across a set of table rows that are
+                                        somehow related to the current row. This is comparable to the type of
+                                        calculation that can be done with an aggregate function, but unlike regular
+                                        aggregate functions, they do not group rows into a single output row.</p>
+                                </div>
+                                <div id="content-pg-extensions" class="tutorial_content_pane">
+                                    <h2>7. Extensions (PostGIS)</h2>
+                                    <p>PostgreSQL's architecture allows it to be extended by adding new functionality.
+                                        The most famous extension is PostGIS, which adds support for geographic objects
+                                        and allows location queries to be run in SQL, turning your database into a
+                                        powerful geospatial server.</p>
+                                </div>
+                                <div id="content-pg-transactions" class="tutorial_content_pane">
+                                    <h2>8. Transactions & Concurrency</h2>
+                                    <p>PostgreSQL has a robust Multi-Version Concurrency Control (MVCC) system, which
+                                        provides excellent performance for concurrent transactions. It ensures that
+                                        reads do not block writes and writes do not block reads, a major advantage for
+                                        high-traffic applications.</p>
+                                </div>
+                                <div id="content-pg-roles" class="tutorial_content_pane">
+                                    <h2>9. Roles and Permissions</h2>
+                                    <p>PostgreSQL manages database access permissions using the concept of roles. A role
+                                        can be thought of as either a database user or a group of database users. It
+                                        offers a powerful and flexible system for managing who can access and modify
+                                        your data.</p>
+                                </div>
+                                <div id="content-pg-performance" class="tutorial_content_pane">
+                                    <h2>10. Performance Tuning</h2>
+                                    <p>Tuning PostgreSQL involves several strategies, including query optimization using
+                                        `EXPLAIN ANALYZE`, proper indexing, and configuring the `postgresql.conf` file
+                                        to optimize memory usage, checkpointing, and other server-level settings for
+                                        your specific workload.</p>
+                                </div>
+
+                                <div id="content-mdb-intro" class="tutorial_content_pane">
+                                    <h2>1. Introduction to NoSQL & MongoDB</h2>
+                                    <p>NoSQL databases provide a mechanism for storage and retrieval of data that is
+                                        modeled in means other than the tabular relations used in relational databases.
+                                        MongoDB is a leading document-oriented NoSQL database that stores data in
+                                        flexible, JSON-like documents.</p>
+                                </div>
+                                <div id="content-mdb-setup" class="tutorial_content_pane">
+                                    <h2>2. Installation & Setup</h2>
+                                    <p>You can install MongoDB on your local machine or use a cloud service like MongoDB
+                                        Atlas. Setup involves starting the `mongod` server process and connecting to it
+                                        using the MongoDB Shell (`mongosh`), a command-line interface.</p>
+                                </div>
+                                <div id="content-mdb-json-bson" class="tutorial_content_pane">
+                                    <h2>3. JSON, BSON, and Documents</h2>
+                                    <p>MongoDB stores data in documents, which are data structures composed of field and
+                                        value pairs. These documents are stored in BSON (Binary JSON), a binary
+                                        representation of JSON-like documents that provides more data types and is
+                                        efficient to scan.</p>
+                                </div>
+                                <div id="content-mdb-crud" class="tutorial_content_pane">
+                                    <h2>4. CRUD Operations</h2>
+                                    <p>MongoDB's CRUD operations are performed on collections (groups of documents). The
+                                        core methods are `insertOne()`/`insertMany()` (Create), `find()`/`findOne()`
+                                        (Read), `updateOne()`/`updateMany()` (Update), and `deleteOne()`/`deleteMany()`
+                                        (Delete).</p>
+                                </div>
+                                <div id="content-mdb-queries" class="tutorial_content_pane">
+                                    <h2>5. Advanced Queries</h2>
+                                    <p>MongoDB's query language is very powerful. You can query for documents where
+                                        field values match specific conditions, use comparison operators (`$gt`, `$lt`),
+                                        logical operators (`$and`, `$or`), and even query for elements within arrays.
+                                    </p>
+                                </div>
+                                <div id="content-mdb-aggregation" class="tutorial_content_pane">
+                                    <h2>6. Aggregation Framework</h2>
+                                    <p>The Aggregation Framework is a powerful way to process data records and return
+                                        computed results. It groups values from multiple documents together and can
+                                        perform a variety of operations on the grouped data to return a single result,
+                                        similar to SQL's `GROUP BY`.</p>
+                                </div>
+                                <div id="content-mdb-indexes" class="tutorial_content_pane">
+                                    <h2>7. Indexes in MongoDB</h2>
+                                    <p>Like in SQL databases, indexes are crucial for query performance. MongoDB
+                                        supports indexes on any field in a document, including fields within embedded
+                                        documents and arrays. You can create single-field, compound, and multikey
+                                        indexes.</p>
+                                </div>
+                                <div id="content-mdb-modeling" class="tutorial_content_pane">
+                                    <h2>8. Data Modeling</h2>
+                                    <p>Data modeling in MongoDB is different from relational databases. Because you can
+                                        embed documents and use arrays, you often denormalize your data to keep related
+                                        information together in a single document, which optimizes for read performance.
+                                    </p>
+                                </div>
+                                <div id="content-mdb-replication" class="tutorial_content_pane">
+                                    <h2>9. Replication</h2>
+                                    <p>Replication provides redundancy and increases data availability. With
+                                        replication, multiple copies of your data are stored on different database
+                                        servers in what's called a replica set. This provides high availability and
+                                        protects against the failure of a single server.</p>
+                                </div>
+                                <div id="content-mdb-sharding" class="tutorial_content_pane">
+                                    <h2>10. Sharding</h2>
+                                    <p>Sharding is a method for distributing data across multiple machines. MongoDB uses
+                                        sharding to support deployments with very large data sets and high throughput
+                                        operations. It partitions a collection's data across multiple servers (shards)
+                                        based on a shard key.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+         <footer class="footer">
+			<div class="container">
+				<div class="footer_content">
+					<div class="row">
+
+						<div class="col-lg-4 footer_col">
+							<div class="logo_container">
+								<div class="logo">
+									<img src="images/AKSHLOGO.png" alt="AKSH Java Hub Logo">
+									<span>AKSH JAVA HUB</span>
+								</div>
+							</div>
+							<p class="footer_about_text">
+								Your comprehensive guide to mastering Java. From core concepts to advanced frameworks,
+								we provide the resources you need to excel in your tech journey.
+							</p>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Quick Links</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Tutorials</a></li>
+								<li><a href="#">Courses</a></li>
+								<li><a href="#">About Us</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Resources</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Testimonials</a></li>
+								<li><a href="#">Community</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-4 footer_col">
+							<div class="footer_column_title">Stay Updated</div>
+							<p class="footer_about_text">Subscribe to our newsletter to get the latest tutorials and
+								news delivered to your inbox.</p>
+							<form action="#" class="newsletter_form">
+								<input type="email" placeholder="Your email address" required>
+								<button type="submit">
+									<i class="fas fa-arrow-right"></i>
+								</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+					<div class="footer_copyright">
+						<span>&copy;
+							<script>document.write(new Date().getFullYear());</script> AKSH Java Hub. All rights
+							reserved.
+						</span>
+					</div>
+					<div class="footer_social_contact ml-sm-auto">
+						<ul class="social_contact_list">
+							<li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+							<li><a href="#" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Part 1: Handle clicks on MAIN categories
+            $('.main_cat_link').on('click', function (e) {
+                e.preventDefault();
+                var targetCollapse = $(this).attr('href');
+                if (!$(this).hasClass('active')) {
+                    $(targetCollapse).find('a').first().click();
+                }
+                $('.main_cat_link').removeClass('active');
+                $(this).addClass('active');
+                $('.sub_topic_list').not(targetCollapse).collapse('hide');
+                $(targetCollapse).collapse('show');
+            });
+
+            // Part 2: Handle clicks on SUB-TOPICS
+            $('.sub_topic_list a').on('click', function (e) {
+                e.preventDefault();
+                $('.tutorial_content_pane').removeClass('active');
+                $('.sub_topic_list a').removeClass('active');
+                $(this).addClass('active');
+                var targetContent = '#' + $(this).data('target');
+                $(targetContent).addClass('active');
+            });
+
+            // Initialize the page
+            $('.main_cat_list li:first-child .main_cat_link').trigger('click');
+        });
+    </script>
+
+</body>
+
+</html>

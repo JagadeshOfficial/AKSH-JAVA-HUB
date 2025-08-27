@@ -1,0 +1,376 @@
+/* =================================
+   TUTORIALS PAGE STYLES
+   ================================= */
+
+/* --- Page Header --- */
+.page_header {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    margin-top: 90px; /* Offset for the fixed header */
+}
+.page_header h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: var(--text-dark, #111827);
+}
+.page_header p {
+    font-size: 1.1rem;
+    color: var(--text-light, #6B7280);
+    margin-top: 10px;
+}
+
+/* --- Main Section --- */
+.tutorials_section {
+    padding: 80px 0;
+}
+
+/* --- Sticky Sidebar --- */
+.sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 110px; /* 90px header + 20px space */
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    background: #fff;
+}
+.sidebar h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 15px;
+}
+.sidebar_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar_list li a {
+    display: block;
+    padding: 12px 15px;
+    color: var(--text-light, #6B7280);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.sidebar_list li a:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color, #4F46E5);
+}
+.sidebar_list li a.active {
+    background-color: var(--primary-color, #4F46E5);
+    color: #fff;
+    font-weight: 700;
+}
+
+/* --- Tutorial Content Area --- */
+.tutorial_intro {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+.tutorial_intro h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+.tutorial_intro p {
+    color: var(--text-light, #6B7280);
+    margin-bottom: 0;
+}
+
+/* --- Tutorial Topic Cards --- */
+.tutorial_topic_card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+.tutorial_topic_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border-color: var(--primary-color, #4F46E5);
+}
+.topic_icon {
+    font-size: 1.8rem;
+    color: var(--primary-color, #4F46E5);
+    margin-right: 25px;
+}
+.topic_info {
+    flex-grow: 1;
+}
+.topic_info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark, #111827);
+    margin: 0;
+}
+.topic_info p {
+    color: var(--text-light, #6B7280);
+    margin: 5px 0 0 0;
+}
+.topic_button {
+    font-size: 1.2rem;
+    color: #adb5bd;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.tutorial_topic_card:hover .topic_button {
+    color: var(--primary-color, #4F46E5);
+}
+
+
+
+
+
+
+
+
+
+/* =================================
+   TUTORIALS PAGE - V2 REDESIGN
+   ================================= */
+
+/* --- Sidebar Enhancements --- */
+.sidebar_progress {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+.sidebar_progress h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark, #111827);
+    margin-bottom: 15px;
+}
+.progress {
+    height: 1rem;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+.progress-bar {
+    background-color: var(--primary-color, #4F46E5);
+}
+
+/* --- Content Intro & Search --- */
+.tutorial_intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.topic_search {
+    position: relative;
+}
+.topic_search input {
+    height: 45px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding-left: 40px;
+    padding-right: 15px;
+    outline: none;
+}
+.topic_search i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #adb5bd;
+}
+
+
+/* --- Custom Accordion Styles --- */
+.accordion_card {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.accordion_header {
+    background-color: #fff !important;
+    border-bottom: 0 !important;
+}
+.accordion_header .btn-link {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--text-dark, #111827);
+    text-decoration: none;
+    width: 100%;
+}
+.accordion_header .btn-link::after {
+    content: '\f078'; /* Font Awesome chevron-down */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    float: right;
+    transition: transform 0.3s ease;
+}
+.accordion_header .btn-link[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+.accordion_card .card-body {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+/* --- Enhanced Topic Cards --- */
+.tutorial_topic_card {
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    padding: 20px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    background-color: #f8f9fa; /* Light background for topics */
+}
+.tutorial_topic_card.completed {
+    background-color: #f0fdf4; /* Greenish tint for completed */
+    border-left: 4px solid #16a34a;
+}
+.topic_status {
+    font-size: 1.5rem;
+    color: #adb5bd;
+    margin-right: 20px;
+}
+.tutorial_topic_card.completed .topic_status {
+    color: #16a34a; /* Green checkmark */
+}
+.topic_meta {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+.topic_meta span {
+    margin-right: 15px;
+}
+.topic_meta i {
+    margin-right: 5px;
+}
+
+
+/* =================================
+   TUTORIALS PAGE - EXPANDING ACCORDION LAYOUT
+   ================================= */
+.tutorials_section .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* --- COLUMN 1: EXPANDING ACCORDION NAV --- */
+.main_cat_nav_accordion {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 15px;
+    background: #fff;
+    position: sticky;
+    top: 110px;
+}
+.main_cat_nav_accordion .main_cat_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.main_cat_link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark, #111827);
+    text-decoration: none !important; /* Override bootstrap */
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+.main_cat_link:hover {
+    background-color: #f8f9fa;
+}
+.main_cat_link.active {
+    background-color: var(--primary-color, #4F46E5);
+    color: #fff;
+}
+.main_cat_link .fa-chevron-down {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+.main_cat_link[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+.sub_topic_list {
+    list-style: none;
+    padding: 10px 0 10px 35px; /* Indent sub-topics */
+    margin-top: 5px;
+}
+.sub_topic_list li a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-light, #6B7280);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.sub_topic_list li a:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color, #4F46E5);
+}
+.sub_topic_list li a.active {
+    background-color: #eef2ff;
+    color: var(--primary-color, #4F46E5);
+    font-weight: 700;
+}
+
+/* --- COLUMN 2: CONTENT AREA & CODE BLOCKS --- */
+.tutorial_content_area {
+    padding-left: 20px;
+}
+.tutorial_content_pane {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.tutorial_content_pane.active {
+    display: block;
+}
+.tutorial_content_pane h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* Professional Code Block Styling */
+pre {
+    background-color: #282c34; /* Dark background */
+    color: #abb2bf; /* Light grey text */
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
+blockquote {
+    border-left: 4px solid var(--primary-color, #4F46E5);
+    padding-left: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #6c757d;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

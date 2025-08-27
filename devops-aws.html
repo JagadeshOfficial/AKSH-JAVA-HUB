@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AKSH Java Hub - DevOps with AWS Path</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="DevOps with AWS Tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <style>
+        .page_header {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            margin-top: 90px;
+        }
+
+        .page_header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+        }
+
+        .page_header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .tutorials_section {
+            padding: 60px 0;
+        }
+
+        .tutorials_section .container-fluid {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main_cat_nav_accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            background: #fff;
+            position: sticky;
+            top: 110px;
+        }
+
+        .main_cat_nav_accordion .main_cat_list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main_cat_link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none !important;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .main_cat_link .fa-chevron-down {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .main_cat_link[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .main_cat_link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .main_cat_link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .main_cat_link.active .fas,
+        .main_cat_link.active .fab {
+            color: #fff;
+        }
+
+        .main_cat_link .fas,
+        .main_cat_link .fab {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            color: #52525B;
+            transition: color 0.3s ease;
+        }
+
+        .sub_topic_list {
+            list-style: none;
+            padding: 10px 0 10px 35px;
+            margin-top: 5px;
+        }
+
+        .sub_topic_list li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sub_topic_list li a:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .sub_topic_list li a.active {
+            background-color: #fff7ed;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Light orange */
+        .tutorial_content_area {
+            padding-left: 20px;
+        }
+
+        .tutorial_content_pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tutorial_content_pane.active {
+            display: block;
+        }
+
+        .tutorial_content_pane h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        pre {
+            background-color: #232f3e;
+            color: #d1d5db;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            border: 1px solid #4b5563;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items: center">
+                <div class="logo_container">
+                    <a href="index.html" class="logo d-flex align-items-center"
+                        style="gap: 10px; text-decoration: none;">
+                        <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                            style="height:75px; width:auto; object-fit:contain;">
+                    </a>
+                </div>
+                <nav class="main_nav_container ml-auto">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="index.html">Home</a></li>
+                            <!-- <li class="main_nav_item active"><a href="tutorials.html">Tutorials</a></li>-->
+                            <li class="main_nav_item"><a href="courses.html">Courses</a></li>
+                            <li class="main_nav_item"><a href="interview-questions.html">Interview Questions</a></li>
+                            <li class="main_nav_item"><a href="about.html">About Us</a></li>
+                            <li class="main_nav_item"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="page_header">
+                <div class="container">
+                    <h1>DevOps with AWS Path</h1>
+                    <p>Learn to build, deploy, and manage modern applications on the AWS cloud.</p>
+                </div>
+            </div>
+
+            <div class="tutorials_section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <nav class="main_cat_nav_accordion">
+                                <ul class="main_cat_list">
+                                    <li>
+                                        <a href="#submenu-devops-foundations" data-toggle="collapse"
+                                            aria-expanded="true" class="main_cat_link active">
+                                            <i class="fas fa-drafting-compass"></i> DevOps Foundations <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-devops-foundations" class="collapse show sub_topic_list">
+                                            <li><a href="#" class="active" data-target="content-devops-intro">1. What is
+                                                    DevOps?</a></li>
+                                            <li><a href="#" data-target="content-devops-culture">2. The DevOps Culture
+                                                    (CAMS)</a></li>
+                                            <li><a href="#" data-target="content-devops-lifecycle">3. The DevOps
+                                                    Lifecycle</a></li>
+                                            <li><a href="#" data-target="content-devops-aws-intro">4. Introduction to
+                                                    AWS</a></li>
+                                            <li><a href="#" data-target="content-devops-cli">5. AWS CLI & IAM Basics</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-devops-linux">6. Linux Command Line
+                                                    Basics</a></li>
+                                            <li><a href="#" data-target="content-devops-scripting">7. Shell
+                                                    Scripting</a></li>
+                                            <li><a href="#" data-target="content-devops-networking">8. Networking Basics
+                                                    (VPC, Subnets)</a></li>
+                                            <li><a href="#" data-target="content-devops-agile">9. Agile vs DevOps</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-devops-tools">10. Overview of the
+                                                    Toolchain</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-git" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-git-alt"></i> Source Control with Git <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-git" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-git-intro">1. What is Version
+                                                    Control?</a></li>
+                                            <li><a href="#" data-target="content-git-setup">2. Installing & Configuring
+                                                    Git</a></li>
+                                            <li><a href="#" data-target="content-git-basics">3. Basic Commands (add,
+                                                    commit, push)</a></li>
+                                            <li><a href="#" data-target="content-git-branching">4. Branching and
+                                                    Merging</a></li>
+                                            <li><a href="#" data-target="content-git-github">5. Working with GitHub</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-git-conflicts">6. Resolving Merge
+                                                    Conflicts</a></li>
+                                            <li><a href="#" data-target="content-git-flow">7. Git Flow Workflow</a></li>
+                                            <li><a href="#" data-target="content-git-codecommit">8. AWS CodeCommit</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-git-ignore">9. Using .gitignore</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-git-tags">10. Tags and Releases</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-ci-cd" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-cogs"></i> CI/CD with AWS <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-ci-cd" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-cicd-intro">1. Introduction to
+                                                    CI/CD</a></li>
+                                            <li><a href="#" data-target="content-cicd-codebuild">2. AWS CodeBuild</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-cicd-codedeploy">3. AWS CodeDeploy</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-cicd-codepipeline">4. AWS
+                                                    CodePipeline</a></li>
+                                            <li><a href="#" data-target="content-cicd-pipeline1">5. Building a Simple
+                                                    Pipeline</a></li>
+                                            <li><a href="#" data-target="content-cicd-artifacts">6. Managing Build
+                                                    Artifacts</a></li>
+                                            <li><a href="#" data-target="content-cicd-github">7. Integrating with
+                                                    GitHub</a></li>
+                                            <li><a href="#" data-target="content-cicd-blue-green">8. Blue/Green
+                                                    Deployments</a></li>
+                                            <li><a href="#" data-target="content-cicd-canary">9. Canary Deployments</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-cicd-jenkins">10. Jenkins on AWS</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-containers" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-docker"></i> Containerization <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-containers" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-con-intro">1. Intro to Containers &
+                                                    Docker</a></li>
+                                            <li><a href="#" data-target="content-con-dockerfile">2. Writing a
+                                                    Dockerfile</a></li>
+                                            <li><a href="#" data-target="content-con-images">3. Building & Managing
+                                                    Images</a></li>
+                                            <li><a href="#" data-target="content-con-compose">4. Docker Compose for
+                                                    Multi-Container Apps</a></li>
+                                            <li><a href="#" data-target="content-con-ecr">5. Amazon ECR (Elastic
+                                                    Container Registry)</a></li>
+                                            <li><a href="#" data-target="content-con-ecs">6. Amazon ECS (Elastic
+                                                    Container Service)</a></li>
+                                            <li><a href="#" data-target="content-con-fargate">7. ECS with Fargate</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-con-kubernetes">8. Introduction to
+                                                    Kubernetes (k8s)</a></li>
+                                            <li><a href="#" data-target="content-con-eks">9. Amazon EKS (Elastic
+                                                    Kubernetes Service)</a></li>
+                                            <li><a href="#" data-target="content-con-best-practices">10. Container Best
+                                                    Practices</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-iac" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-cloud"></i> Infrastructure as Code (IaC) <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-iac" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-iac-intro">1. What is IaC?</a></li>
+                                            <li><a href="#" data-target="content-iac-cloudformation">2. Intro to AWS
+                                                    CloudFormation</a></li>
+                                            <li><a href="#" data-target="content-iac-templates">3. Writing
+                                                    CloudFormation Templates (YAML)</a></li>
+                                            <li><a href="#" data-target="content-iac-stacks">4. Managing Stacks</a></li>
+                                            <li><a href="#" data-target="content-iac-params">5. Parameters & Outputs</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-iac-terraform-intro">6. Introduction to
+                                                    Terraform</a></li>
+                                            <li><a href="#" data-target="content-iac-terraform-aws">7. Using Terraform
+                                                    with AWS</a></li>
+                                            <li><a href="#" data-target="content-iac-terraform-state">8. Managing
+                                                    Terraform State</a></li>
+                                            <li><a href="#" data-target="content-iac-terraform-modules">9. Terraform
+                                                    Modules</a></li>
+                                            <li><a href="#" data-target="content-iac-cfn-vs-tf">10. CloudFormation vs.
+                                                    Terraform</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-monitoring" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-binoculars"></i> Monitoring & Logging <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-monitoring" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-mon-intro">1. Importance of
+                                                    Monitoring</a></li>
+                                            <li><a href="#" data-target="content-mon-cloudwatch-metrics">2. Amazon
+                                                    CloudWatch Metrics</a></li>
+                                            <li><a href="#" data-target="content-mon-cloudwatch-alarms">3. CloudWatch
+                                                    Alarms</a></li>
+                                            <li><a href="#" data-target="content-mon-cloudwatch-logs">4. Centralized
+                                                    Logging with CloudWatch Logs</a></li>
+                                            <li><a href="#" data-target="content-mon-cloudtrail">5. Auditing with AWS
+                                                    CloudTrail</a></li>
+                                            <li><a href="#" data-target="content-mon-dashboards">6. Creating
+                                                    Dashboards</a></li>
+                                            <li><a href="#" data-target="content-mon-xray">7. Distributed Tracing with
+                                                    AWS X-Ray</a></li>
+                                            <li><a href="#" data-target="content-mon-prometheus">8. Intro to Prometheus
+                                                    & Grafana</a></li>
+                                            <li><a href="#" data-target="content-mon-elk">9. The ELK Stack
+                                                    (Elasticsearch, Logstash, Kibana)</a></li>
+                                            <li><a href="#" data-target="content-mon-alerting">10. Alerting and Incident
+                                                    Response</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="tutorial_content_area">
+                                <div id="content-devops-intro" class="tutorial_content_pane active">
+                                    <h2>1. What is DevOps?</h2>
+                                    <p>DevOps is a set of practices, tools, and a cultural philosophy that automate and
+                                        integrate the processes between software development and IT teams. It emphasizes
+                                        collaboration and communication to enable organizations to deliver applications
+                                        and services at high velocity.</p>
+                                </div>
+                                <div id="content-devops-culture" class="tutorial_content_pane">
+                                    <h2>2. The DevOps Culture (CAMS)</h2>
+                                    <p>CAMS stands for Culture, Automation, Measurement, and Sharing. It represents the
+                                        core values of DevOps. **Culture** of collaboration, **Automation** of the
+                                        software delivery pipeline, **Measurement** of performance and metrics, and
+                                        **Sharing** of knowledge and tools.</p>
+                                </div>
+                                <div id="content-devops-lifecycle" class="tutorial_content_pane">
+                                    <h2>3. The DevOps Lifecycle</h2>
+                                    <p>The DevOps lifecycle is a continuous loop of phases: Plan -> Code -> Build ->
+                                        Test -> Release -> Deploy -> Operate -> Monitor, with a feedback loop connecting
+                                        them all. This continuous nature is the heart of delivering software faster and
+                                        more reliably.</p>
+                                </div>
+                                <div id="content-devops-aws-intro" class="tutorial_content_pane">
+                                    <h2>4. Introduction to AWS</h2>
+                                    <p>Amazon Web Services (AWS) is a comprehensive cloud platform offering over 200
+                                        services. For DevOps, key services include EC2 (compute), S3 (storage), VPC
+                                        (networking), IAM (security), and the suite of developer tools like
+                                        CodePipeline.</p>
+                                </div>
+                                <div id="content-devops-cli" class="tutorial_content_pane">
+                                    <h2>5. AWS CLI & IAM Basics</h2>
+                                    <p>The AWS Command Line Interface (CLI) is a powerful tool for managing your AWS
+                                        services from the terminal, essential for automation. IAM (Identity and Access
+                                        Management) is used to securely manage access to AWS services and resources by
+                                        creating users, groups, and roles with specific permissions.</p>
+                                </div>
+                                <div id="content-devops-linux" class="tutorial_content_pane">
+                                    <h2>6. Linux Command Line Basics</h2>
+                                    <p>A strong foundation in the Linux command line is non-negotiable for DevOps.
+                                        Mastering commands for navigation (`cd`, `ls`), file manipulation (`cp`, `mv`,
+                                        `rm`), text processing (`grep`, `sed`), and permissions (`chmod`) is essential
+                                        for managing servers.</p>
+                                </div>
+                                <div id="content-devops-scripting" class="tutorial_content_pane">
+                                    <h2>7. Shell Scripting</h2>
+                                    <p>Shell scripting allows you to automate repetitive tasks on a server. Writing
+                                        scripts in Bash to install software, configure services, or perform backups is a
+                                        fundamental DevOps skill.</p>
+                                </div>
+                                <div id="content-devops-networking" class="tutorial_content_pane">
+                                    <h2>8. Networking Basics (VPC, Subnets)</h2>
+                                    <p>Understanding basic networking is crucial. In AWS, this means learning about
+                                        Virtual Private Clouds (VPCs) to create isolated networks, Subnets for
+                                        partitioning, Route Tables for directing traffic, and Security Groups to act as
+                                        firewalls.</p>
+                                </div>
+                                <div id="content-devops-agile" class="tutorial_content_pane">
+                                    <h2>9. Agile vs DevOps</h2>
+                                    <p>Agile is a development methodology focused on iterative development and customer
+                                        feedback. DevOps is a culture and practice that extends Agile principles beyond
+                                        development to include operations, automating the delivery pipeline.</p>
+                                </div>
+                                <div id="content-devops-tools" class="tutorial_content_pane">
+                                    <h2>10. Overview of the Toolchain</h2>
+                                    <p>The DevOps toolchain is the set of tools used to implement the DevOps lifecycle.
+                                        This includes tools for version control (Git), CI/CD (Jenkins, AWS
+                                        CodePipeline), containerization (Docker), configuration management (Ansible),
+                                        and monitoring (CloudWatch, Prometheus).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_content">
+                    <div class="row">
+
+                        <div class="col-lg-4 footer_col">
+                            <div class="logo_container">
+                                <div class="logo">
+                                    <img src="images/AKSHLOGO.png" alt="AKSH Java Hub Logo">
+                                    <span>AKSH JAVA HUB</span>
+                                </div>
+                            </div>
+                            <p class="footer_about_text">
+                                Your comprehensive guide to mastering Java. From core concepts to advanced frameworks,
+                                we provide the resources you need to excel in your tech journey.
+                            </p>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer_col">
+                            <div class="footer_column_title">Quick Links</div>
+                            <ul class="footer_column_list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Tutorials</a></li>
+                                <li><a href="#">Courses</a></li>
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer_col">
+                            <div class="footer_column_title">Resources</div>
+                            <ul class="footer_column_list">
+                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 footer_col">
+                            <div class="footer_column_title">Stay Updated</div>
+                            <p class="footer_about_text">Subscribe to our newsletter to get the latest tutorials and
+                                news delivered to your inbox.</p>
+                            <form action="#" class="newsletter_form">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+                    <div class="footer_copyright">
+                        <span>&copy;
+                            <script>document.write(new Date().getFullYear());</script> AKSH Java Hub. All rights
+                            reserved.
+                        </span>
+                    </div>
+                    <div class="footer_social_contact ml-sm-auto">
+                        <ul class="social_contact_list">
+                            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="#" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Part 1: Handle clicks on MAIN categories
+            $('.main_cat_link').on('click', function (e) {
+                e.preventDefault();
+                var targetCollapse = $(this).attr('href');
+                if (!$(this).hasClass('active')) {
+                    $(targetCollapse).find('a').first().click();
+                }
+                $('.main_cat_link').removeClass('active');
+                $(this).addClass('active');
+                $('.sub_topic_list').not(targetCollapse).collapse('hide');
+                $(targetCollapse).collapse('show');
+            });
+
+            // Part 2: Handle clicks on SUB-TOPICS
+            $('.sub_topic_list a').on('click', function (e) {
+                e.preventDefault();
+                $('.tutorial_content_pane').removeClass('active');
+                $('.sub_topic_list a').removeClass('active');
+                $(this).addClass('active');
+                var targetContent = '#' + $(this).data('target');
+                $(targetContent).addClass('active');
+            });
+
+            // Initialize the page
+            $('.main_cat_list li:first-child .main_cat_link').trigger('click');
+        });
+    </script>
+
+</body>
+
+</html>

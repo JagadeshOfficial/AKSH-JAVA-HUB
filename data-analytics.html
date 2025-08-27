@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AKSH Java Hub - Python for Data Analytics Path</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Python for Data Analytics Tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <style>
+       
+        .page_header { padding: 60px 0; background-color: #f8f9fa; text-align: center; border-bottom: 1px solid #e5e7eb; margin-top: 90px; }
+        .page_header h1 { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 3rem; }
+        .page_header p { font-size: 1.1rem; color: var(--text-light); margin-top: 10px; }
+        .tutorials_section { padding: 60px 0; }
+        .tutorials_section .container-fluid { padding-left: 30px; padding-right: 30px; }
+        .main_cat_nav_accordion { border: 1px solid #e5e7eb; border-radius: 12px; padding: 15px; background: #fff; position: sticky; top: 110px; }
+        .main_cat_nav_accordion .main_cat_list { list-style: none; padding: 0; margin: 0; }
+        .main_cat_link { display: flex; align-items: center; justify-content: space-between; padding: 15px; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); text-decoration: none !important; border-radius: 8px; width: 100%; transition: all 0.3s ease; }
+        .main_cat_link .fa-chevron-down { font-size: 0.9rem; transition: transform 0.3s ease; }
+        .main_cat_link[aria-expanded="true"] .fa-chevron-down { transform: rotate(180deg); }
+        .main_cat_link:hover { background-color: #f8f9fa; }
+        .main_cat_link.active { background-color: var(--primary-color); color: #fff; }
+        .main_cat_link.active .fas, .main_cat_link.active .fab { color: #fff; }
+        .main_cat_link .fas, .main_cat_link .fab { margin-right: 15px; width: 20px; text-align: center; color: #9ca3af; transition: color 0.3s ease; }
+        .sub_topic_list { list-style: none; padding: 10px 0 10px 35px; margin-top: 5px; }
+        .sub_topic_list li a { display: block; padding: 10px 15px; color: var(--text-light); font-weight: 500; text-decoration: none; border-radius: 6px; transition: all 0.3s ease; }
+        .sub_topic_list li a:hover { background-color: #f8f9fa; color: var(--primary-color); }
+        .sub_topic_list li a.active { background-color: #eef2ff; color: var(--primary-color); font-weight: 700; }
+        .tutorial_content_area { padding-left: 20px; }
+        .tutorial_content_pane { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tutorial_content_pane.active { display: block; }
+        .tutorial_content_pane h2 { font-size: 2.2rem; font-weight: 800; font-family: 'Raleway', sans-serif; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #e5e7eb; }
+        pre { background-color: #282c34; color: #abb2bf; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; }
+        blockquote { border-left: 4px solid var(--primary-color); padding-left: 20px; margin: 25px 0; font-style: italic; color: #6c757d; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="super_container">
+
+    <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items: center">
+                <div class="logo_container">
+                    <a href="index.html" class="logo d-flex align-items-center"
+                        style="gap: 10px; text-decoration: none;">
+                        <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                            style="height:75px; width:auto; object-fit:contain;">
+                    </a>
+                </div>
+                <nav class="main_nav_container ml-auto">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="index.html">Home</a></li>
+                            <!-- <li class="main_nav_item active"><a href="tutorials.html">Tutorials</a></li>-->
+                            <li class="main_nav_item"><a href="courses.html">Courses</a></li>
+                            <li class="main_nav_item"><a href="interview-questions.html">Interview Questions</a></li>
+                            <li class="main_nav_item"><a href="about.html">About Us</a></li>
+                            <li class="main_nav_item"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+    <main>
+        <div class="page_header">
+            <div class="container">
+                <h1>Python for Data Analytics Path</h1>
+                <p>From Python basics to advanced machine learning, your complete guide to becoming a data analyst.</p>
+            </div>
+        </div>
+
+        <div class="tutorials_section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <nav class="main_cat_nav_accordion">
+                            <ul class="main_cat_list">
+                                <li>
+                                    <a href="#submenu-python-fundamentals" data-toggle="collapse" aria-expanded="true" class="main_cat_link active">
+                                        <i class="fab fa-python"></i> Python Fundamentals <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul id="submenu-python-fundamentals" class="collapse show sub_topic_list">
+                                        <li><a href="#" class="active" data-target="content-py-intro">1. Intro to Python for DA</a></li>
+                                        <li><a href="#" data-target="content-py-setup">2. Setup & Jupyter Notebooks</a></li>
+                                        <li><a href="#" data-target="content-py-variables">3. Variables & Data Types</a></li>
+                                        <li><a href="#" data-target="content-py-structures">4. Python Data Structures</a></li>
+                                        <li><a href="#" data-target="content-py-control-flow">5. Control Flow</a></li>
+                                        <li><a href="#" data-target="content-py-functions">6. Functions</a></li>
+                                        <li><a href="#" data-target="content-py-modules">7. Modules & Pip</a></li>
+                                        <li><a href="#" data-target="content-py-file-io">8. Reading CSV Files</a></li>
+                                        <li><a href="#" data-target="content-py-exceptions">9. Exception Handling</a></li>
+                                        <li><a href="#" data-target="content-py-lambda">10. Lambda Functions</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu-numpy" data-toggle="collapse" aria-expanded="false" class="main_cat_link collapsed">
+                                        <i class="fas fa-calculator"></i> NumPy for Numerical Data <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul id="submenu-numpy" class="collapse sub_topic_list">
+                                        <li><a href="#" data-target="content-np-intro">1. What is NumPy?</a></li>
+                                        <li><a href="#" data-target="content-np-arrays">2. Creating NumPy Arrays</a></li>
+                                        <li><a href="#" data-target="content-np-indexing">3. Array Indexing & Slicing</a></li>
+                                        <li><a href="#" data-target="content-np-shape">4. Shape Manipulation</a></li>
+                                        <li><a href="#" data-target="content-np-ufuncs">5. Universal Functions</a></li>
+                                        <li><a href="#" data-target="content-np-math">6. Mathematical Functions</a></li>
+                                        <li><a href="#" data-target="content-np-broadcasting">7. Broadcasting</a></li>
+                                        <li><a href="#" data-target="content-np-linalg">8. Linear Algebra</a></li>
+                                        <li><a href="#" data-target="content-np-random">9. Working with Random Numbers</a></li>
+                                        <li><a href="#" data-target="content-np-files">10. Saving & Loading Arrays</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu-pandas" data-toggle="collapse" aria-expanded="false" class="main_cat_link collapsed">
+                                        <i class="fas fa-table"></i> Pandas for Data Manipulation <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul id="submenu-pandas" class="collapse sub_topic_list">
+                                        <li><a href="#" data-target="content-pd-intro">1. Intro to Series & DataFrames</a></li>
+                                        <li><a href="#" data-target="content-pd-reading">2. Reading Data (CSV, Excel)</a></li>
+                                        <li><a href="#" data-target="content-pd-selecting">3. Indexing & Selecting Data</a></li>
+                                        <li><a href="#" data-target="content-pd-filtering">4. Conditional Filtering</a></li>
+                                        <li><a href="#" data-target="content-pd-missing">5. Handling Missing Data</a></li>
+                                        <li><a href="#" data-target="content-pd-groupby">6. Grouping Data with GroupBy</a></li>
+                                        <li><a href="#" data-target="content-pd-merge">7. Merging, Joining & Concatenating</a></li>
+                                        <li><a href="#" data-target="content-pd-apply">8. Applying Functions</a></li>
+                                        <li><a href="#" data-target="content-pd-time">9. Working with Time Series</a></li>
+                                        <li><a href="#" data-target="content-pd-writing">10. Writing Data to Files</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu-viz" data-toggle="collapse" aria-expanded="false" class="main_cat_link collapsed">
+                                        <i class="fas fa-chart-bar"></i> Data Visualization <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul id="submenu-viz" class="collapse sub_topic_list">
+                                        <li><a href="#" data-target="content-viz-importance">1. The Importance of Visualization</a></li>
+                                        <li><a href="#" data-target="content-viz-matplotlib">2. Intro to Matplotlib</a></li>
+                                        <li><a href="#" data-target="content-viz-plots">3. Line, Bar, and Scatter Plots</a></li>
+                                        <li><a href="#" data-target="content-viz-customize">4. Customizing Plots</a></li>
+                                        <li><a href="#" data-target="content-viz-seaborn">5. Intro to Seaborn</a></li>
+                                        <li><a href="#" data-target="content-viz-statistical">6. Statistical Plots</a></li>
+                                        <li><a href="#" data-target="content-viz-categorical">7. Categorical Data Plots</a></li>
+                                        <li><a href="#" data-target="content-viz-heatmaps">8. Creating Heatmaps</a></li>
+                                        <li><a href="#" data-target="content-viz-pairplots">9. Pair Plots</a></li>
+                                        <li><a href="#" data-target="content-viz-interactive">10. Interactive Plots with Plotly</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu-ml" data-toggle="collapse" aria-expanded="false" class="main_cat_link collapsed">
+                                        <i class="fas fa-robot"></i> Intro to Machine Learning <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul id="submenu-ml" class="collapse sub_topic_list">
+                                        <li><a href="#" data-target="content-ml-intro">1. What is Machine Learning?</a></li>
+                                        <li><a href="#" data-target="content-ml-types">2. Supervised vs. Unsupervised</a></li>
+                                        <li><a href="#" data-target="content-ml-sklearn">3. Intro to Scikit-learn</a></li>
+                                        <li><a href="#" data-target="content-ml-workflow">4. The ML Workflow</a></li>
+                                        <li><a href="#" data-target="content-ml-train-test">5. Training and Test Sets</a></li>
+                                        <li><a href="#" data-target="content-ml-linear-reg">6. Linear Regression</a></li>
+                                        <li><a href="#" data-target="content-ml-logistic-reg">7. Logistic Regression</a></li>
+                                        <li><a href="#" data-target="content-ml-knn">8. K-Nearest Neighbors (KNN)</a></li>
+                                        <li><a href="#" data-target="content-ml-metrics">9. Model Evaluation Metrics</a></li>
+                                        <li><a href="#" data-target="content-ml-scaling">10. Feature Scaling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu-projects" data-toggle="collapse" aria-expanded="false" class="main_cat_link collapsed">
+                                        <i class="fas fa-project-diagram"></i> Applied Data Projects <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                    <ul id="submenu-projects" class="collapse sub_topic_list">
+                                        <li><a href="#" data-target="content-proj-sales">1. Analyzing Sales Data</a></li>
+                                        <li><a href="#" data-target="content-proj-climate">2. Exploring Climate Trends</a></li>
+                                        <li><a href="#" data-target="content-proj-recommender">3. Movie Recommender System</a></li>
+                                        <li><a href="#" data-target="content-proj-churn">4. Customer Churn Prediction</a></li>
+                                        <li><a href="#" data-target="content-proj-sentiment">5. Sentiment Analysis</a></li>
+                                        <li><a href="#" data-target="content-proj-cleaning">6. Data Cleaning in the Wild</a></li>
+                                        <li><a href="#" data-target="content-proj-features">7. Feature Engineering</a></li>
+                                        <li><a href="#" data-target="content-proj-story">8. Building a Data Story</a></li>
+                                        <li><a href="#" data-target="content-proj-presenting">9. Presenting Your Findings</a></li>
+                                        <li><a href="#" data-target="content-proj-next">10. Next Steps</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="tutorial_content_area">
+                            <div id="content-py-intro" class="tutorial_content_pane active"><h2>1. Intro to Python for Data Analytics</h2><p>Python's simple syntax and vast ecosystem of powerful libraries (like NumPy, Pandas, and Matplotlib) have made it the go-to language for data analysis, machine learning, and data science.</p></div>
+                            <div id="content-py-setup" class="tutorial_content_pane"><h2>2. Setup & Jupyter Notebooks</h2><p>The best way to start is by installing the Anaconda distribution, which bundles Python and all essential data science libraries. You will primarily work in Jupyter Notebooks, an interactive environment perfect for exploring data and documenting your analysis.</p></div>
+                            <div id="content-py-variables" class="tutorial_content_pane"><h2>3. Variables & Basic Data Types</h2><p>Learn the fundamentals of Python variables and the core data types you'll use constantly: integers (`int`), floating-point numbers (`float`), strings (`str`), and booleans (`bool`).</p></div>
+                            <div id="content-py-structures" class="tutorial_content_pane"><h2>4. Python Data Structures</h2><p>Master Python's built-in collection types. `Lists` for ordered, mutable data. `Tuples` for ordered, immutable data. And `Dictionaries` for unordered key-value pairs, which are essential for working with structured data like JSON.</p></div>
+                            <div id="content-py-control-flow" class="tutorial_content_pane"><h2>5. Control Flow</h2><p>Guide your program's logic using conditional statements (`if`, `elif`, `else`) to make decisions and loops (`for`, `while`) to iterate over data, a fundamental task in data analysis.</p></div>
+                            <div id="content-py-functions" class="tutorial_content_pane"><h2>6. Functions</h2><p>Write reusable blocks of code with functions (`def`). This is key to creating clean, modular, and maintainable analysis scripts. Learn to define functions that accept arguments and return results.</p></div>
+                            <div id="content-py-modules" class="tutorial_content_pane"><h2>7. Modules & Pip</h2><p>Extend Python's capabilities by importing modules from its extensive standard library and third-party packages. Learn to manage these packages using `pip`, the Python Package Installer.</p></div>
+                            <div id="content-py-file-io" class="tutorial_content_pane"><h2>8. Reading CSV Files</h2><p>Data often comes in text files like CSV (Comma-Separated Values). Learn how to use Python's built-in `csv` module to read data from these files line by line, setting the stage for using Pandas.</p></div>
+                            <div id="content-py-exceptions" class="tutorial_content_pane"><h2>9. Exception Handling</h2><p>Real-world data is messy. Use `try...except` blocks to handle potential errors gracefully, such as when a file is not found or data is in an unexpected format, ensuring your scripts don't crash.</p></div>
+                            <div id="content-py-lambda" class="tutorial_content_pane"><h2>10. Lambda Functions</h2><p>Lambda functions are small, anonymous functions defined with the `lambda` keyword. They are particularly useful in data analysis for creating quick, one-off functions to use with libraries like Pandas.</p></div>
+                            
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+     <footer class="footer">
+			<div class="container">
+				<div class="footer_content">
+					<div class="row">
+
+						<div class="col-lg-4 footer_col">
+							<div class="logo_container">
+								<div class="logo">
+									<img src="images/AKSHLOGO.png" alt="AKSH Java Hub Logo">
+									<span>AKSH JAVA HUB</span>
+								</div>
+							</div>
+							<p class="footer_about_text">
+								Your comprehensive guide to mastering Java. From core concepts to advanced frameworks,
+								we provide the resources you need to excel in your tech journey.
+							</p>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Quick Links</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Tutorials</a></li>
+								<li><a href="#">Courses</a></li>
+								<li><a href="#">About Us</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Resources</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Testimonials</a></li>
+								<li><a href="#">Community</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-4 footer_col">
+							<div class="footer_column_title">Stay Updated</div>
+							<p class="footer_about_text">Subscribe to our newsletter to get the latest tutorials and
+								news delivered to your inbox.</p>
+							<form action="#" class="newsletter_form">
+								<input type="email" placeholder="Your email address" required>
+								<button type="submit">
+									<i class="fas fa-arrow-right"></i>
+								</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+					<div class="footer_copyright">
+						<span>&copy;
+							<script>document.write(new Date().getFullYear());</script> AKSH Java Hub. All rights
+							reserved.
+						</span>
+					</div>
+					<div class="footer_social_contact ml-sm-auto">
+						<ul class="social_contact_list">
+							<li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+							<li><a href="#" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // Part 1: Handle clicks on MAIN categories
+    $('.main_cat_link').on('click', function(e) {
+        e.preventDefault();
+        var targetCollapse = $(this).attr('href');
+        if (!$(this).hasClass('active')) {
+            $(targetCollapse).find('a').first().click();
+        }
+        $('.main_cat_link').removeClass('active');
+        $(this).addClass('active');
+        $('.sub_topic_list').not(targetCollapse).collapse('hide');
+        $(targetCollapse).collapse('show');
+    });
+
+    // Part 2: Handle clicks on SUB-TOPICS
+    $('.sub_topic_list a').on('click', function(e) {
+        e.preventDefault();
+        $('.tutorial_content_pane').removeClass('active');
+        $('.sub_topic_list a').removeClass('active');
+        $(this).addClass('active');
+        var targetContent = '#' + $(this).data('target');
+        $(targetContent).addClass('active');
+    });
+
+    // Initialize the page
+    $('.main_cat_list li:first-child .main_cat_link').trigger('click');
+});
+</script>
+
+</body>
+</html>

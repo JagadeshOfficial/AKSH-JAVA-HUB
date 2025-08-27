@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AKSH Java Hub - Java Full Stack Path</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Java Full Stack Tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <style>
+
+        .page_header {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            margin-top: 90px;
+        }
+
+        .page_header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+        }
+
+        .page_header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .tutorials_section {
+            padding: 60px 0;
+        }
+
+        .tutorials_section .container-fluid {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main_cat_nav_accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            background: #fff;
+            position: sticky;
+            top: 110px;
+        }
+
+        .main_cat_nav_accordion .main_cat_list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main_cat_link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none !important;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .main_cat_link .fa-chevron-down {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .main_cat_link[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .main_cat_link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .main_cat_link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .main_cat_link.active .fas {
+            color: #fff;
+        }
+
+        .main_cat_link .fas,
+        .main_cat_link .fab {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .sub_topic_list {
+            list-style: none;
+            padding: 10px 0 10px 35px;
+            margin-top: 5px;
+        }
+
+        .sub_topic_list li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sub_topic_list li a:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .sub_topic_list li a.active {
+            background-color: #eef2ff;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .tutorial_content_area {
+            padding-left: 20px;
+        }
+
+        .tutorial_content_pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tutorial_content_pane.active {
+            display: block;
+        }
+
+        .tutorial_content_pane h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items: center">
+                <div class="logo_container">
+                    <a href="index.html" class="logo d-flex align-items-center"
+                        style="gap: 10px; text-decoration: none;">
+                        <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                            style="height:75px; width:auto; object-fit:contain;">
+                    </a>
+                </div>
+                <nav class="main_nav_container ml-auto">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="index.html">Home</a></li>
+                            <!-- <li class="main_nav_item active"><a href="tutorials.html">Tutorials</a></li>-->
+                            <li class="main_nav_item"><a href="courses.html">Courses</a></li>
+                            <li class="main_nav_item"><a href="interview-questions.html">Interview Questions</a></li>
+                            <li class="main_nav_item"><a href="about.html">About Us</a></li>
+                            <li class="main_nav_item"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="page_header">
+                <div class="container">
+                    <h1>Java Full Stack Developer Path</h1>
+                    <p>An end-to-end guide covering frontend, backend, databases, and deployment.</p>
+                </div>
+            </div>
+
+            <div class="tutorials_section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <nav class="main_cat_nav_accordion">
+                                <ul class="main_cat_list">
+                                    <li>
+                                        <a href="#submenu-core-java" data-toggle="collapse" aria-expanded="true"
+                                            class="main_cat_link active">
+                                            <i class="fas fa-star"></i> Core Java <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-core-java" class="collapse show sub_topic_list">
+                                            <li><a href="#" class="active" data-target="content-intro">1. Introduction
+                                                    to Java</a></li>
+                                            <li><a href="#" data-target="content-jvm-jdk">2. JVM, JRE, and JDK</a></li>
+                                            <li><a href="#" data-target="content-variables">3. Variables & Data
+                                                    Types</a></li>
+                                            <li><a href="#" data-target="content-operators">4. Operators</a></li>
+                                            <li><a href="#" data-target="content-control-flow">5. Control Flow
+                                                    Statements</a></li>
+                                            <li><a href="#" data-target="content-oops">6. OOPs Concepts</a></li>
+                                            <li><a href="#" data-target="content-classes-objects">7. Classes and
+                                                    Objects</a></li>
+                                            <li><a href="#" data-target="content-constructors">8. Constructors</a></li>
+                                            <li><a href="#" data-target="content-inheritance">9. Inheritance</a></li>
+                                            <li><a href="#" data-target="content-polymorphism">10. Polymorphism</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-adv-java" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-level-up-alt"></i> Advanced Java <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-adv-java" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-adv-collections">1. Advanced
+                                                    Collections</a></li>
+                                            <li><a href="#" data-target="content-adv-multithreading">2.
+                                                    Multithreading</a></li>
+                                            <li><a href="#" data-target="content-adv-jdbc">3. JDBC</a></li>
+                                            <li><a href="#" data-target="content-adv-generics">4. Generics</a></li>
+                                            <li><a href="#" data-target="content-adv-exception">5. Exception
+                                                    Handling</a></li>
+                                            <li><a href="#" data-target="content-adv-io">6. File I/O & Serialization</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-adv-lambda">7. Lambda Expressions</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-adv-stream">8. Stream API</a></li>
+                                            <li><a href="#" data-target="content-adv-networking">9. Networking</a></li>
+                                            <li><a href="#" data-target="content-adv-annotations">10. Annotations</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-frontend" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-react"></i> Frontend <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-frontend" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-fe-html">1. HTML5</a></li>
+                                            <li><a href="#" data-target="content-fe-css">2. CSS3 & Flexbox</a></li>
+                                            <li><a href="#" data-target="content-fe-bootstrap">3. Bootstrap</a></li>
+                                            <li><a href="#" data-target="content-fe-js-basics">4. JavaScript Basics</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fe-dom">5. DOM Manipulation</a></li>
+                                            <li><a href="#" data-target="content-fe-es6">6. ES6+ Features</a></li>
+                                            <li><a href="#" data-target="content-fe-api">7. APIs & Fetch</a></li>
+                                            <li><a href="#" data-target="content-fe-react">8. Introduction to React</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fe-components">9. React Components &
+                                                    Props</a></li>
+                                            <li><a href="#" data-target="content-fe-state">10. React State & Hooks</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-database" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-database"></i> Database <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-database" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-db-intro-sql">1. Introduction to
+                                                    SQL</a></li>
+                                            <li><a href="#" data-target="content-db-mysql">2. MySQL Setup</a></li>
+                                            <li><a href="#" data-target="content-db-ddl-dml">3. DDL & DML Commands</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-select">4. The SELECT Statement</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-joins">5. SQL Joins</a></li>
+                                            <li><a href="#" data-target="content-db-aggregation">6. Aggregate
+                                                    Functions</a></li>
+                                            <li><a href="#" data-target="content-db-subqueries">7. Subqueries</a></li>
+                                            <li><a href="#" data-target="content-db-indexes">8. Indexes</a></li>
+                                            <li><a href="#" data-target="content-db-normalization">9. Normalization</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-transactions">10. Transactions &
+                                                    ACID</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-servlets" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-server"></i> Servlets & JSP <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-servlets" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-sv-intro">1. Introduction to
+                                                    Servlets</a></li>
+                                            <li><a href="#" data-target="content-sv-lifecycle">2. Servlet Lifecycle</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sv-request">3. HttpServletRequest</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sv-response">4. HttpServletResponse</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sv-session">5. Session Management</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sv-cookies">6. Cookies</a></li>
+                                            <li><a href="#" data-target="content-sv-filters">7. Filters & Listeners</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sv-intro-jsp">8. Introduction to
+                                                    JSP</a></li>
+                                            <li><a href="#" data-target="content-sv-jsp-actions">9. JSP Action Tags</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sv-jstl">10. JSTL</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-springboot" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-leaf"></i> Spring Boot <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-springboot" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-sb-intro">1. Introduction to Spring
+                                                    Boot</a></li>
+                                            <li><a href="#" data-target="content-sb-di">2. Dependency Injection (DI)</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sb-rest">3. Building REST APIs</a></li>
+                                            <li><a href="#" data-target="content-sb-jpa">4. Spring Data JPA</a></li>
+                                            <li><a href="#" data-target="content-sb-mvc">5. Spring MVC</a></li>
+                                            <li><a href="#" data-target="content-sb-security">6. Spring Security</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-sb-validation">7. Validation</a></li>
+                                            <li><a href="#" data-target="content-sb-aop">8. Aspect-Oriented Programming
+                                                    (AOP)</a></li>
+                                            <li><a href="#" data-target="content-sb-testing">9. Testing with JUnit &
+                                                    Mockito</a></li>
+                                            <li><a href="#" data-target="content-sb-actuator">10. Actuator &
+                                                    Monitoring</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="tutorial_content_area">
+                                <div id="content-intro" class="tutorial_content_pane active">
+                                    <h2>1. Introduction to Java</h2>
+                                    <p>Java is a high-level, class-based, object-oriented programming language designed
+                                        to have as few implementation dependencies as possible. Developed by James
+                                        Gosling at Sun Microsystems and released in 1995, it has become one of the most
+                                        popular programming languages in the world.</p>
+                                    <blockquote>The core principle of Java is "Write Once, Run Anywhere" (WORA), which
+                                        means that compiled Java code can run on all platforms that support Java without
+                                        the need for recompilation.</blockquote>
+                                    <pre><code>public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}</code></pre>
+                                </div>
+                                <div id="content-jvm-jdk" class="tutorial_content_pane">
+                                    <h2>2. JVM, JRE, and JDK Explained</h2>
+                                    <p>Understanding the Java environment is crucial. The JDK (Java Development Kit) is
+                                        for developers, containing the JRE and tools. The JRE (Java Runtime Environment)
+                                        is for running Java apps, containing the JVM. The JVM (Java Virtual Machine)
+                                        executes the bytecode, making Java platform-independent.</p>
+                                </div>
+                                <div id="content-variables" class="tutorial_content_pane">
+                                    <h2>3. Variables & Data Types</h2>
+                                    <p>Variables are containers for data. Java is statically-typed, so you must declare
+                                        a variable's type. Primitive types include `int`, `double`, `char`, and
+                                        `boolean`. Reference types refer to objects like `String`.</p>
+                                </div>
+                                <div id="content-operators" class="tutorial_content_pane">
+                                    <h2>4. Operators</h2>
+                                    <p>Operators perform actions on variables. Main types include Arithmetic (`+`, `-`),
+                                        Comparison (`==`, `>`), and Logical (`&&`, `||`).</p>
+                                </div>
+                                <div id="content-control-flow" class="tutorial_content_pane">
+                                    <h2>5. Control Flow Statements</h2>
+                                    <p>Control the execution path of your code. Use `if-else` for decisions, `for` and
+                                        `while` for loops, and `switch` for multiple conditions.</p>
+                                </div>
+                                <div id="content-oops" class="tutorial_content_pane">
+                                    <h2>6. OOPs Concepts</h2>
+                                    <p>Object-Oriented Programming is a paradigm based on objects. The four pillars are
+                                        Encapsulation, Abstraction, Inheritance, and Polymorphism.</p>
+                                </div>
+                                <div id="content-classes-objects" class="tutorial_content_pane">
+                                    <h2>7. Classes and Objects</h2>
+                                    <p>A class is a blueprint for creating objects. An object is an instance of a class.
+                                        A class defines attributes (state) and methods (behavior).</p>
+                                </div>
+                                <div id="content-constructors" class="tutorial_content_pane">
+                                    <h2>8. Constructors</h2>
+                                    <p>A constructor is a special method for initializing a new object. It has the same
+                                        name as the class and no return type.</p>
+                                </div>
+                                <div id="content-inheritance" class="tutorial_content_pane">
+                                    <h2>9. Inheritance</h2>
+                                    <p>Inheritance allows a new class (subclass) to acquire properties from an existing
+                                        class (superclass) using the `extends` keyword, promoting code reuse.</p>
+                                </div>
+                                <div id="content-polymorphism" class="tutorial_content_pane">
+                                    <h2>10. Polymorphism</h2>
+                                    <p>Meaning "many forms," it allows an object to be treated as an instance of its
+                                        parent class. It's achieved through method overriding (runtime) and overloading
+                                        (compile-time).</p>
+                                </div>
+                                <div id="content-adv-collections" class="tutorial_content_pane">
+                                    <h2>1. Advanced Collections</h2>
+                                    <p>Explore specialized collections like `LinkedHashMap` for insertion order,
+                                        `TreeSet` for sorted sets, and `ConcurrentHashMap` for thread-safe operations.
+                                    </p>
+                                </div>
+                                <div id="content-adv-multithreading" class="tutorial_content_pane">
+                                    <h2>2. Multithreading</h2>
+                                    <p>Learn to run multiple parts of a program concurrently by extending the `Thread`
+                                        class or implementing the `Runnable` interface. Key concepts include
+                                        synchronization and thread pools.</p>
+                                </div>
+                                <div id="content-adv-jdbc" class="tutorial_content_pane">
+                                    <h2>3. JDBC</h2>
+                                    <p>Java Database Connectivity (JDBC) is the API for connecting Java applications to
+                                        databases. Learn to use `Connection`, `Statement`, and `ResultSet` to execute
+                                        SQL queries.</p>
+                                </div>
+                                <div id="content-adv-generics" class="tutorial_content_pane">
+                                    <h2>4. Generics</h2>
+                                    <p>Generics add compile-time type safety to your collections. Using types as
+                                        parameters (e.g., `List<String>`) prevents runtime errors and eliminates the
+                                            need for manual casting.</p>
+                                </div>
+                                <div id="content-adv-exception" class="tutorial_content_pane">
+                                    <h2>5. Exception Handling</h2>
+                                    <p>Master the use of `try-catch-finally` blocks to create resilient applications.
+                                        Understand the difference between checked and unchecked exceptions and how to
+                                        create custom exceptions.</p>
+                                </div>
+                                <div id="content-adv-io" class="tutorial_content_pane">
+                                    <h2>6. File I/O & Serialization</h2>
+                                    <p>Learn to read from and write to files using Java's I/O streams. Serialization is
+                                        the process of converting an object's state into a byte stream to be stored or
+                                        transmitted.</p>
+                                </div>
+                                <div id="content-adv-lambda" class="tutorial_content_pane">
+                                    <h2>7. Lambda Expressions</h2>
+                                    <p>Introduced in Java 8, lambdas provide a concise syntax for implementing
+                                        functional interfaces (interfaces with a single abstract method), enabling a
+                                        more functional programming style.</p>
+                                </div>
+                                <div id="content-adv-stream" class="tutorial_content_pane">
+                                    <h2>8. Stream API</h2>
+                                    <p>The Stream API provides a powerful, declarative way to process sequences of
+                                        elements. Learn to use intermediate (`filter`, `map`) and terminal (`collect`,
+                                        `forEach`) operations for efficient data manipulation.</p>
+                                </div>
+                                <div id="content-adv-networking" class="tutorial_content_pane">
+                                    <h2>9. Networking</h2>
+                                    <p>Explore Java's networking capabilities with the `java.net` package. Learn to
+                                        build client-server applications using `Socket` and `ServerSocket` for TCP
+                                        communication.</p>
+                                </div>
+                                <div id="content-adv-annotations" class="tutorial_content_pane">
+                                    <h2>10. Annotations</h2>
+                                    <p>Annotations provide metadata about your code. They are heavily used by frameworks
+                                        like Spring (`@Component`, `@Autowired`) and JPA (`@Entity`) for configuration
+                                        and behavior modification.</p>
+                                </div>
+                                <div id="content-fe-html" class="tutorial_content_pane">
+                                    <h2>1. HTML5</h2>
+                                    <p>HTML is the backbone of the web. Learn to structure your web pages using semantic
+                                        HTML5 elements like `
+                                    <header>`, `<nav>`, `<main>`, `<article>`, and `<footer>`.</p>
+                                </div>
+                                <div id="content-fe-css" class="tutorial_content_pane">
+                                    <h2>2. CSS3 & Flexbox</h2>
+                                    <p>CSS styles your HTML. Learn modern layout techniques with Flexbox, a powerful
+                                        model for aligning and distributing items in a container, essential for
+                                        responsive design.</p>
+                                </div>
+                                <div id="content-fe-bootstrap" class="tutorial_content_pane">
+                                    <h2>3. Bootstrap</h2>
+                                    <p>Bootstrap is a CSS framework that accelerates development. Learn its responsive
+                                        grid system (`row`, `col-`) and pre-built components like navbars, cards, and
+                                        modals.</p>
+                                </div>
+                                <div id="content-fe-js-basics" class="tutorial_content_pane">
+                                    <h2>4. JavaScript Basics</h2>
+                                    <p>Learn the core language of web interactivity: variables (`let`, `const`), data
+                                        types, functions, and control flow (`if`, `for`).</p>
+                                </div>
+                                <div id="content-fe-dom" class="tutorial_content_pane">
+                                    <h2>5. DOM Manipulation</h2>
+                                    <p>The Document Object Model (DOM) is how JavaScript interacts with HTML. Learn to
+                                        select elements, change their content and styles, and respond to user events
+                                        like clicks.</p>
+                                </div>
+                                <div id="content-fe-es6" class="tutorial_content_pane">
+                                    <h2>6. ES6+ Features</h2>
+                                    <p>Modernize your JavaScript with ES6 features like arrow functions, template
+                                        literals, destructuring, and the spread/rest operators for cleaner and more
+                                        powerful code.</p>
+                                </div>
+                                <div id="content-fe-api" class="tutorial_content_pane">
+                                    <h2>7. APIs & Fetch</h2>
+                                    <p>Learn how to make asynchronous network requests to server-side APIs using the
+                                        modern `fetch()` API, which uses Promises to handle responses from the server.
+                                    </p>
+                                </div>
+                                <div id="content-fe-react" class="tutorial_content_pane">
+                                    <h2>8. Introduction to React</h2>
+                                    <p>React is a library for building user interfaces with components. Understand its
+                                        declarative nature, the concept of a Virtual DOM, and how it efficiently updates
+                                        the UI.</p>
+                                </div>
+                                <div id="content-fe-components" class="tutorial_content_pane">
+                                    <h2>9. React Components & Props</h2>
+                                    <p>Components are the reusable building blocks of a React app. Learn how to create
+                                        them and pass data from parent to child components using `props`.</p>
+                                </div>
+                                <div id="content-fe-state" class="tutorial_content_pane">
+                                    <h2>10. React State & Hooks</h2>
+                                    <p>Manage dynamic data within your components using `state`. Learn the `useState`
+                                        hook to add state to functional components and `useEffect` to handle side
+                                        effects.</p>
+                                </div>
+                                <div id="content-db-intro-sql" class="tutorial_content_pane">
+                                    <h2>1. Introduction to SQL</h2>
+                                    <p>SQL (Structured Query Language) is the standard language for relational
+                                        databases. Learn its purpose and basic syntax for querying data.</p>
+                                </div>
+                                <div id="content-db-mysql" class="tutorial_content_pane">
+                                    <h2>2. MySQL Setup</h2>
+                                    <p>MySQL is a popular open-source RDBMS. This covers installing the server and using
+                                        a client like MySQL Workbench to connect and create your first database.</p>
+                                </div>
+                                <div id="content-db-ddl-dml" class="tutorial_content_pane">
+                                    <h2>3. DDL & DML Commands</h2>
+                                    <p>Learn the difference between Data Definition Language (`CREATE`, `ALTER`, `DROP`)
+                                        for schema and Data Manipulation Language (`INSERT`, `UPDATE`, `DELETE`) for
+                                        data.</p>
+                                </div>
+                                <div id="content-db-select" class="tutorial_content_pane">
+                                    <h2>4. The SELECT Statement</h2>
+                                    <p>Master the `SELECT` statement, the workhorse of SQL. Learn to use `FROM`,
+                                        `WHERE`, and `ORDER BY` to retrieve and sort data precisely.</p>
+                                </div>
+                                <div id="content-db-joins" class="tutorial_content_pane">
+                                    <h2>5. SQL Joins</h2>
+                                    <p>Combine data from multiple tables using `JOIN`. Understand the difference between
+                                        `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, and `FULL OUTER JOIN`.</p>
+                                </div>
+                                <div id="content-db-aggregation" class="tutorial_content_pane">
+                                    <h2>6. Aggregate Functions</h2>
+                                    <p>Perform calculations on sets of data using functions like `COUNT()`, `SUM()`,
+                                        `AVG()`, `MIN()`, and `MAX()`, often paired with the `GROUP BY` clause.</p>
+                                </div>
+                                <div id="content-db-subqueries" class="tutorial_content_pane">
+                                    <h2>7. Subqueries</h2>
+                                    <p>A subquery is a query nested inside another. Learn how to use them to perform
+                                        complex, multi-step data retrieval operations.</p>
+                                </div>
+                                <div id="content-db-indexes" class="tutorial_content_pane">
+                                    <h2>8. Indexes</h2>
+                                    <p>Indexes are crucial for database performance. Learn how they work, how to create
+                                        them, and how they speed up data retrieval at the cost of slower writes.</p>
+                                </div>
+                                <div id="content-db-normalization" class="tutorial_content_pane">
+                                    <h2>9. Normalization</h2>
+                                    <p>Normalization is the process of organizing tables to reduce data redundancy and
+                                        improve data integrity. Understand the first three normal forms (1NF, 2NF, 3NF).
+                                    </p>
+                                </div>
+                                <div id="content-db-transactions" class="tutorial_content_pane">
+                                    <h2>10. Transactions & ACID</h2>
+                                    <p>A transaction ensures that a group of SQL statements executes completely or not
+                                        at all. Learn about the ACID properties (Atomicity, Consistency, Isolation,
+                                        Durability) that guarantee reliability.</p>
+                                </div>
+                                <div id="content-sv-intro" class="tutorial_content_pane">
+                                    <h2>1. Introduction to Servlets</h2>
+                                    <p>Servlets are Java programs that run on a web server, acting as a middle layer
+                                        between a request from a browser and a database or other applications.</p>
+                                </div>
+                                <div id="content-sv-lifecycle" class="tutorial_content_pane">
+                                    <h2>2. Servlet Lifecycle</h2>
+                                    <p>A servlet's life is managed by the container. It follows three key phases:
+                                        initialization (`init()`), servicing requests (`service()`), and destruction
+                                        (`destroy()`).</p>
+                                </div>
+                                <div id="content-sv-request" class="tutorial_content_pane">
+                                    <h2>3. HttpServletRequest</h2>
+                                    <p>Learn to use the `HttpServletRequest` object to access incoming HTTP data,
+                                        including parameters, headers, and cookies.</p>
+                                </div>
+                                <div id="content-sv-response" class="tutorial_content_pane">
+                                    <h2>4. HttpServletResponse</h2>
+                                    <p>The `HttpServletResponse` object is used to send a response back to the client.
+                                        Learn to set the content type, status codes, and write HTML back to the browser.
+                                    </p>
+                                </div>
+                                <div id="content-sv-session" class="tutorial_content_pane">
+                                    <h2>5. Session Management</h2>
+                                    <p>Since HTTP is stateless, learn how to track users across multiple requests using
+                                        the `HttpSession` API, a fundamental part of building web applications.</p>
+                                </div>
+                                <div id="content-sv-cookies" class="tutorial_content_pane">
+                                    <h2>6. Cookies</h2>
+                                    <p>Cookies are small pieces of data stored on the client's browser. Learn how to
+                                        create, send, and read cookies to maintain user information between requests.
+                                    </p>
+                                </div>
+                                <div id="content-sv-filters" class="tutorial_content_pane">
+                                    <h2>7. Filters & Listeners</h2>
+                                    <p>Filters intercept requests and responses, allowing you to perform tasks like
+                                        logging or authentication. Listeners respond to lifecycle events in the web
+                                        application.</p>
+                                </div>
+                                <div id="content-sv-intro-jsp" class="tutorial_content_pane">
+                                    <h2>8. Introduction to JSP</h2>
+                                    <p>JavaServer Pages (JSP) is a technology for creating dynamic web pages. It allows
+                                        you to embed Java code into your HTML, making it easier to generate the view
+                                        layer.</p>
+                                </div>
+                                <div id="content-sv-jsp-actions" class="tutorial_content_pane">
+                                    <h2>9. JSP Action Tags</h2>
+                                    <p>Action tags are XML-based tags that control the flow of the JSP page. Learn to
+                                        use tags like `<jsp:include>` to include other files and `<jsp:useBean>` to work
+                                                with JavaBeans.</p>
+                                </div>
+                                <div id="content-sv-jstl" class="tutorial_content_pane">
+                                    <h2>10. JSTL</h2>
+                                    <p>The JSP Standard Tag Library (JSTL) provides a set of standard tags that replace
+                                        the need for messy Java scriptlets, allowing for cleaner loops, conditionals,
+                                        and more.</p>
+                                </div>
+                                <div id="content-sb-intro" class="tutorial_content_pane">
+                                    <h2>1. Introduction to Spring Boot</h2>
+                                    <p>Spring Boot simplifies Spring application development. Learn its core features:
+                                        auto-configuration, starter dependencies, and the ability to create standalone
+                                        applications.</p>
+                                </div>
+                                <div id="content-sb-di" class="tutorial_content_pane">
+                                    <h2>2. Dependency Injection (DI)</h2>
+                                    <p>Dependency Injection is a core concept in Spring. Understand how the IoC
+                                        (Inversion of Control) container manages your objects (Beans) and injects their
+                                        dependencies automatically.</p>
+                                </div>
+                                <div id="content-sb-rest" class="tutorial_content_pane">
+                                    <h2>3. Building REST APIs</h2>
+                                    <p>Learn to build RESTful web services with Spring Boot using annotations like
+                                        `@RestController`, `@GetMapping`, and `@PostMapping` to handle HTTP requests.
+                                    </p>
+                                </div>
+                                <div id="content-sb-jpa" class="tutorial_content_pane">
+                                    <h2>4. Spring Data JPA</h2>
+                                    <p>Spring Data JPA makes database interaction incredibly simple. Learn how to create
+                                        a repository interface that automatically provides full CRUD functionality for
+                                        your entities.</p>
+                                </div>
+                                <div id="content-sb-mvc" class="tutorial_content_pane">
+                                    <h2>5. Spring MVC</h2>
+                                    <p>Learn the Model-View-Controller pattern in Spring for building web applications.
+                                        Understand the flow of a request from the `DispatcherServlet` to a
+                                        `@Controller`.</p>
+                                </div>
+                                <div id="content-sb-security" class="tutorial_content_pane">
+                                    <h2>6. Spring Security</h2>
+                                    <p>Secure your application with Spring Security. This covers basic authentication,
+                                        authorization, and protection against common web vulnerabilities.</p>
+                                </div>
+                                <div id="content-sb-validation" class="tutorial_content_pane">
+                                    <h2>7. Validation</h2>
+                                    <p>Use the Bean Validation API with annotations like `@NotNull` and `@Size` to
+                                        automatically validate incoming request data and ensure data integrity.</p>
+                                </div>
+                                <div id="content-sb-aop" class="tutorial_content_pane">
+                                    <h2>8. Aspect-Oriented Programming (AOP)</h2>
+                                    <p>AOP allows you to handle cross-cutting concerns like logging and security. Learn
+                                        how to define Aspects, Pointcuts, and Advices to modularize this logic.</p>
+                                </div>
+                                <div id="content-sb-testing" class="tutorial_content_pane">
+                                    <h2>9. Testing with JUnit & Mockito</h2>
+                                    <p>Learn to write unit and integration tests for your Spring Boot application using
+                                        JUnit 5, `@SpringBootTest`, and Mockito to mock dependencies.</p>
+                                </div>
+                                <div id="content-sb-actuator" class="tutorial_content_pane">
+                                    <h2>10. Actuator & Monitoring</h2>
+                                    <p>Spring Boot Actuator provides production-ready features for monitoring your app.
+                                        Learn to use its endpoints like `/health` and `/metrics` to keep an eye on your
+                                        application's status.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+       <footer class="footer">
+			<div class="container">
+				<div class="footer_content">
+					<div class="row">
+
+						<div class="col-lg-4 footer_col">
+							<div class="logo_container">
+								<div class="logo">
+									<img src="images/AKSHLOGO.png" alt="AKSH Java Hub Logo">
+									<span>AKSH JAVA HUB</span>
+								</div>
+							</div>
+							<p class="footer_about_text">
+								Your comprehensive guide to mastering Java. From core concepts to advanced frameworks,
+								we provide the resources you need to excel in your tech journey.
+							</p>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Quick Links</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Tutorials</a></li>
+								<li><a href="#">Courses</a></li>
+								<li><a href="#">About Us</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Resources</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Testimonials</a></li>
+								<li><a href="#">Community</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-4 footer_col">
+							<div class="footer_column_title">Stay Updated</div>
+							<p class="footer_about_text">Subscribe to our newsletter to get the latest tutorials and
+								news delivered to your inbox.</p>
+							<form action="#" class="newsletter_form">
+								<input type="email" placeholder="Your email address" required>
+								<button type="submit">
+									<i class="fas fa-arrow-right"></i>
+								</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+					<div class="footer_copyright">
+						<span>&copy;
+							<script>document.write(new Date().getFullYear());</script> AKSH Java Hub. All rights
+							reserved.
+						</span>
+					</div>
+					<div class="footer_social_contact ml-sm-auto">
+						<ul class="social_contact_list">
+							<li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+							<li><a href="#" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Part 1: Handle clicks on MAIN categories
+            $('.main_cat_link').on('click', function (e) {
+                e.preventDefault();
+                var targetCollapse = $(this).attr('href');
+                if (!$(this).hasClass('active')) {
+                    // This is a new category, so click its first sub-topic
+                    $(targetCollapse).find('a').first().click();
+                }
+                $('.main_cat_link').removeClass('active');
+                $(this).addClass('active');
+                $('.sub_topic_list').not(targetCollapse).collapse('hide');
+                $(targetCollapse).collapse('show');
+            });
+
+            // Part 2: Handle clicks on SUB-TOPICS
+            $('.sub_topic_list a').on('click', function (e) {
+                e.preventDefault();
+                $('.tutorial_content_pane').removeClass('active');
+                $('.sub_topic_list a').removeClass('active');
+                $(this).addClass('active');
+                var targetContent = '#' + $(this).data('target');
+                $(targetContent).addClass('active');
+            });
+
+            // Initialize the page by activating the first main category and its first sub-topic
+            $('.main_cat_list li:first-child .main_cat_link').trigger('click');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AKSH Java Hub - Frontend Developer Path</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Frontend Developer Tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <style>
+        .page_header {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            margin-top: 90px;
+        }
+
+        .page_header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+        }
+
+        .page_header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .tutorials_section {
+            padding: 60px 0;
+        }
+
+        .tutorials_section .container-fluid {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main_cat_nav_accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            background: #fff;
+            position: sticky;
+            top: 110px;
+        }
+
+        .main_cat_nav_accordion .main_cat_list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main_cat_link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none !important;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .main_cat_link .fa-chevron-down {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .main_cat_link[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .main_cat_link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .main_cat_link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .main_cat_link.active .fas,
+        .main_cat_link.active .fab {
+            color: #fff;
+        }
+
+        .main_cat_link .fas,
+        .main_cat_link .fab {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .sub_topic_list {
+            list-style: none;
+            padding: 10px 0 10px 35px;
+            margin-top: 5px;
+        }
+
+        .sub_topic_list li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sub_topic_list li a:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .sub_topic_list li a.active {
+            background-color: #eef2ff;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .tutorial_content_area {
+            padding-left: 20px;
+        }
+
+        .tutorial_content_pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tutorial_content_pane.active {
+            display: block;
+        }
+
+        .tutorial_content_pane h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items: center">
+                <div class="logo_container">
+                    <a href="index.html" class="logo d-flex align-items-center"
+                        style="gap: 10px; text-decoration: none;">
+                        <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                            style="height:75px; width:auto; object-fit:contain;">
+                    </a>
+                </div>
+                <nav class="main_nav_container ml-auto">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="index.html">Home</a></li>
+                            <!-- <li class="main_nav_item active"><a href="tutorials.html">Tutorials</a></li>-->
+                            <li class="main_nav_item"><a href="courses.html">Courses</a></li>
+                            <li class="main_nav_item"><a href="interview-questions.html">Interview Questions</a></li>
+                            <li class="main_nav_item"><a href="about.html">About Us</a></li>
+                            <li class="main_nav_item"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="page_header">
+                <div class="container">
+                    <h1>Frontend Developer Path</h1>
+                    <p>A complete roadmap to building modern, responsive, and interactive user interfaces.</p>
+                </div>
+            </div>
+
+            <div class="tutorials_section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <nav class="main_cat_nav_accordion">
+                                <ul class="main_cat_list">
+                                    <li>
+                                        <a href="#submenu-web-foundations" data-toggle="collapse" aria-expanded="true"
+                                            class="main_cat_link active">
+                                            <i class="fas fa-globe"></i> Web Foundations <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-web-foundations" class="collapse show sub_topic_list">
+                                            <li><a href="#" class="active" data-target="content-wf-how-web-works">1. How
+                                                    the Web Works</a></li>
+                                            <li><a href="#" data-target="content-wf-html-intro">2. Introduction to
+                                                    HTML5</a></li>
+                                            <li><a href="#" data-target="content-wf-html-semantic">3. Semantic HTML</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-wf-forms">4. Forms and Input</a></li>
+                                            <li><a href="#" data-target="content-wf-css-intro">5. Introduction to
+                                                    CSS3</a></li>
+                                            <li><a href="#" data-target="content-wf-box-model">6. The Box Model</a></li>
+                                            <li><a href="#" data-target="content-wf-selectors">7. Selectors &
+                                                    Specificity</a></li>
+                                            <li><a href="#" data-target="content-wf-typography">8. Colors &
+                                                    Typography</a></li>
+                                            <li><a href="#" data-target="content-wf-git-intro">9. Introduction to
+                                                    Git</a></li>
+                                            <li><a href="#" data-target="content-wf-terminal">10. Basic Terminal
+                                                    Commands</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-adv-css" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-css3-alt"></i> Advanced CSS <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-adv-css" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-css-flexbox">1. Flexbox Layout</a></li>
+                                            <li><a href="#" data-target="content-css-grid">2. CSS Grid Layout</a></li>
+                                            <li><a href="#" data-target="content-css-responsive">3. Responsive
+                                                    Design</a></li>
+                                            <li><a href="#" data-target="content-css-variables">4. CSS Variables</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-css-animations">5. Transitions &
+                                                    Animations</a></li>
+                                            <li><a href="#" data-target="content-css-pseudo">6. Pseudo-classes &
+                                                    Elements</a></li>
+                                            <li><a href="#" data-target="content-css-sass-intro">7. Introduction to
+                                                    SASS/SCSS</a></li>
+                                            <li><a href="#" data-target="content-css-sass-nesting">8. Variables &
+                                                    Nesting in SASS</a></li>
+                                            <li><a href="#" data-target="content-css-sass-mixins">9. Mixins & Functions
+                                                    in SASS</a></li>
+                                            <li><a href="#" data-target="content-css-bem">10. BEM Methodology</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-js-core" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-js-square"></i> JavaScript Core <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-js-core" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-js-intro">1. Introduction to
+                                                    JavaScript</a></li>
+                                            <li><a href="#" data-target="content-js-variables">2. Variables, Data Types
+                                                    & Operators</a></li>
+                                            <li><a href="#" data-target="content-js-control-flow">3. Control Flow
+                                                    (If/Loops)</a></li>
+                                            <li><a href="#" data-target="content-js-functions">4. Functions & Scope</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-js-arrays-objects">5. Arrays and
+                                                    Objects</a></li>
+                                            <li><a href="#" data-target="content-js-this">6. The 'this' Keyword</a></li>
+                                            <li><a href="#" data-target="content-js-dom">7. DOM Manipulation</a></li>
+                                            <li><a href="#" data-target="content-js-events">8. Handling Events</a></li>
+                                            <li><a href="#" data-target="content-js-es6">9. ES6+ Syntax</a></li>
+                                            <li><a href="#" data-target="content-js-destructuring">10. Template Literals
+                                                    & Destructuring</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-adv-js" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-rocket"></i> Advanced JavaScript <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-adv-js" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-advjs-async">1. Asynchronous JS</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advjs-async-await">2. async/await</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advjs-fetch">3. Working with APIs
+                                                    (Fetch)</a></li>
+                                            <li><a href="#" data-target="content-advjs-prototypes">4. Prototypes &
+                                                    Inheritance</a></li>
+                                            <li><a href="#" data-target="content-advjs-classes">5. Classes (ES6)</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advjs-modules">6. Modules
+                                                    (Import/Export)</a></li>
+                                            <li><a href="#" data-target="content-advjs-error">7. Error Handling</a></li>
+                                            <li><a href="#" data-target="content-advjs-storage">8. Local & Session
+                                                    Storage</a></li>
+                                            <li><a href="#" data-target="content-advjs-array-methods">9. Advanced Array
+                                                    Methods</a></li>
+                                            <li><a href="#" data-target="content-advjs-event-loop">10. The Event
+                                                    Loop</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-frameworks" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-react"></i> Frontend Frameworks <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-frameworks" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-fw-why">1. Why Use a Framework?</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fw-react-intro">2. Introduction to
+                                                    React</a></li>
+                                            <li><a href="#" data-target="content-fw-jsx">3. JSX and Components</a></li>
+                                            <li><a href="#" data-target="content-fw-props-state">4. Props vs. State</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fw-events">5. Handling Events in
+                                                    React</a></li>
+                                            <li><a href="#" data-target="content-fw-hooks">6. React Hooks (useState,
+                                                    useEffect)</a></li>
+                                            <li><a href="#" data-target="content-fw-conditional">7. Conditional
+                                                    Rendering</a></li>
+                                            <li><a href="#" data-target="content-fw-router">8. React Router</a></li>
+                                            <li><a href="#" data-target="content-fw-context">9. State Management
+                                                    (Context API)</a></li>
+                                            <li><a href="#" data-target="content-fw-vue">10. Introduction to Vue.js</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-tooling" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-tools"></i> Tooling & Best Practices <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-tooling" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-tl-npm">1. Package Managers
+                                                    (NPM/Yarn)</a></li>
+                                            <li><a href="#" data-target="content-tl-bundlers">2. Module Bundlers
+                                                    (Vite/Webpack)</a></li>
+                                            <li><a href="#" data-target="content-tl-linters">3. Linters & Formatters</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-tl-browsers">4. Cross-Browser
+                                                    Compatibility</a></li>
+                                            <li><a href="#" data-target="content-tl-accessibility">5. Web Accessibility
+                                                    (WCAG)</a></li>
+                                            <li><a href="#" data-target="content-tl-performance">6. Performance
+                                                    Optimization</a></li>
+                                            <li><a href="#" data-target="content-tl-devtools">7. Chrome DevTools</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-tl-build">8. Build & Deployment
+                                                    Process</a></li>
+                                            <li><a href="#" data-target="content-tl-pwa">9. Progressive Web Apps
+                                                    (PWAs)</a></li>
+                                            <li><a href="#" data-target="content-tl-security">10. Web Security
+                                                    Basics</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="tutorial_content_area">
+                                <div id="content-wf-how-web-works" class="tutorial_content_pane active">
+                                    <h2>1. How the Web Works</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-html-intro" class="tutorial_content_pane">
+                                    <h2>2. Introduction to HTML5</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-html-semantic" class="tutorial_content_pane">
+                                    <h2>3. Semantic HTML</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-forms" class="tutorial_content_pane">
+                                    <h2>4. Forms and Input</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-css-intro" class="tutorial_content_pane">
+                                    <h2>5. Introduction to CSS3</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-box-model" class="tutorial_content_pane">
+                                    <h2>6. The Box Model</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-selectors" class="tutorial_content_pane">
+                                    <h2>7. Selectors & Specificity</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-typography" class="tutorial_content_pane">
+                                    <h2>8. Colors & Typography</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-git-intro" class="tutorial_content_pane">
+                                    <h2>9. Introduction to Git</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-wf-terminal" class="tutorial_content_pane">
+                                    <h2>10. Basic Terminal Commands</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-flexbox" class="tutorial_content_pane">
+                                    <h2>1. Flexbox Layout</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-grid" class="tutorial_content_pane">
+                                    <h2>2. CSS Grid Layout</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-responsive" class="tutorial_content_pane">
+                                    <h2>3. Responsive Design</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-variables" class="tutorial_content_pane">
+                                    <h2>4. CSS Variables</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-animations" class="tutorial_content_pane">
+                                    <h2>5. Transitions & Animations</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-pseudo" class="tutorial_content_pane">
+                                    <h2>6. Pseudo-classes & Elements</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-sass-intro" class="tutorial_content_pane">
+                                    <h2>7. Introduction to SASS/SCSS</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-sass-nesting" class="tutorial_content_pane">
+                                    <h2>8. Variables & Nesting in SASS</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-sass-mixins" class="tutorial_content_pane">
+                                    <h2>9. Mixins & Functions in SASS</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-css-bem" class="tutorial_content_pane">
+                                    <h2>10. BEM Methodology</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-intro" class="tutorial_content_pane">
+                                    <h2>1. Introduction to JavaScript</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-variables" class="tutorial_content_pane">
+                                    <h2>2. Variables, Data Types & Operators</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-control-flow" class="tutorial_content_pane">
+                                    <h2>3. Control Flow (If/Loops)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-functions" class="tutorial_content_pane">
+                                    <h2>4. Functions & Scope</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-arrays-objects" class="tutorial_content_pane">
+                                    <h2>5. Arrays and Objects</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-this" class="tutorial_content_pane">
+                                    <h2>6. The 'this' Keyword</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-dom" class="tutorial_content_pane">
+                                    <h2>7. DOM Manipulation</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-events" class="tutorial_content_pane">
+                                    <h2>8. Handling Events</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-es6" class="tutorial_content_pane">
+                                    <h2>9. ES6+ Syntax</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-js-destructuring" class="tutorial_content_pane">
+                                    <h2>10. Template Literals & Destructuring</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-async" class="tutorial_content_pane">
+                                    <h2>1. Asynchronous JS</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-async-await" class="tutorial_content_pane">
+                                    <h2>2. async/await</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-fetch" class="tutorial_content_pane">
+                                    <h2>3. Working with APIs (Fetch)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-prototypes" class="tutorial_content_pane">
+                                    <h2>4. Prototypes & Inheritance</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-classes" class="tutorial_content_pane">
+                                    <h2>5. Classes (ES6)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-modules" class="tutorial_content_pane">
+                                    <h2>6. Modules (Import/Export)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-error" class="tutorial_content_pane">
+                                    <h2>7. Error Handling</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-storage" class="tutorial_content_pane">
+                                    <h2>8. Local & Session Storage</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-array-methods" class="tutorial_content_pane">
+                                    <h2>9. Advanced Array Methods</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advjs-event-loop" class="tutorial_content_pane">
+                                    <h2>10. The Event Loop</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-why" class="tutorial_content_pane">
+                                    <h2>1. Why Use a Framework?</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-react-intro" class="tutorial_content_pane">
+                                    <h2>2. Introduction to React</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-jsx" class="tutorial_content_pane">
+                                    <h2>3. JSX and Components</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-props-state" class="tutorial_content_pane">
+                                    <h2>4. Props vs. State</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-events" class="tutorial_content_pane">
+                                    <h2>5. Handling Events in React</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-hooks" class="tutorial_content_pane">
+                                    <h2>6. React Hooks (useState, useEffect)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-conditional" class="tutorial_content_pane">
+                                    <h2>7. Conditional Rendering</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-router" class="tutorial_content_pane">
+                                    <h2>8. React Router</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-context" class="tutorial_content_pane">
+                                    <h2>9. State Management (Context API)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fw-vue" class="tutorial_content_pane">
+                                    <h2>10. Introduction to Vue.js</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-npm" class="tutorial_content_pane">
+                                    <h2>1. Package Managers (NPM/Yarn)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-bundlers" class="tutorial_content_pane">
+                                    <h2>2. Module Bundlers (Vite/Webpack)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-linters" class="tutorial_content_pane">
+                                    <h2>3. Linters & Formatters</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-browsers" class="tutorial_content_pane">
+                                    <h2>4. Cross-Browser Compatibility</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-accessibility" class="tutorial_content_pane">
+                                    <h2>5. Web Accessibility (WCAG)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-performance" class="tutorial_content_pane">
+                                    <h2>6. Performance Optimization</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-devtools" class="tutorial_content_pane">
+                                    <h2>7. Chrome DevTools</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-build" class="tutorial_content_pane">
+                                    <h2>8. Build & Deployment Process</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-pwa" class="tutorial_content_pane">
+                                    <h2>9. Progressive Web Apps (PWAs)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-tl-security" class="tutorial_content_pane">
+                                    <h2>10. Web Security Basics</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_content">
+                    <div class="row">
+
+                        <div class="col-lg-4 footer_col">
+                            <div class="logo_container">
+                                <div class="logo">
+                                    <img src="images/AKSHLOGO.png" alt="AKSH Java Hub Logo">
+                                    <span>AKSH JAVA HUB</span>
+                                </div>
+                            </div>
+                            <p class="footer_about_text">
+                                Your comprehensive guide to mastering Java. From core concepts to advanced frameworks,
+                                we provide the resources you need to excel in your tech journey.
+                            </p>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer_col">
+                            <div class="footer_column_title">Quick Links</div>
+                            <ul class="footer_column_list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Tutorials</a></li>
+                                <li><a href="#">Courses</a></li>
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer_col">
+                            <div class="footer_column_title">Resources</div>
+                            <ul class="footer_column_list">
+                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 footer_col">
+                            <div class="footer_column_title">Stay Updated</div>
+                            <p class="footer_about_text">Subscribe to our newsletter to get the latest tutorials and
+                                news delivered to your inbox.</p>
+                            <form action="#" class="newsletter_form">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+                    <div class="footer_copyright">
+                        <span>&copy;
+                            <script>document.write(new Date().getFullYear());</script> AKSH Java Hub. All rights
+                            reserved.
+                        </span>
+                    </div>
+                    <div class="footer_social_contact ml-sm-auto">
+                        <ul class="social_contact_list">
+                            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="#" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Part 1: Handle clicks on MAIN categories
+            $('.main_cat_link').on('click', function (e) {
+                e.preventDefault();
+                var targetCollapse = $(this).attr('href');
+                if (!$(this).hasClass('active')) {
+                    $(targetCollapse).find('a').first().click();
+                }
+                $('.main_cat_link').removeClass('active');
+                $(this).addClass('active');
+                $('.sub_topic_list').not(targetCollapse).collapse('hide');
+                $(targetCollapse).collapse('show');
+            });
+
+            // Part 2: Handle clicks on SUB-TOPICS
+            $('.sub_topic_list a').on('click', function (e) {
+                e.preventDefault();
+                $('.tutorial_content_pane').removeClass('active');
+                $('.sub_topic_list a').removeClass('active');
+                $(this).addClass('active');
+                var targetContent = '#' + $(this).data('target');
+                $(targetContent).addClass('active');
+            });
+
+            // Initialize the page
+            $('.main_cat_list li:first-child .main_cat_link').trigger('click');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AKSH Java Hub - Python Full Stack Path</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Python Full Stack Tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <style>
+        
+        .page_header {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            margin-top: 90px;
+        }
+
+        .page_header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+        }
+
+        .page_header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .tutorials_section {
+            padding: 60px 0;
+        }
+
+        .tutorials_section .container-fluid {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main_cat_nav_accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            background: #fff;
+            position: sticky;
+            top: 110px;
+        }
+
+        .main_cat_nav_accordion .main_cat_list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main_cat_link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none !important;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .main_cat_link .fa-chevron-down {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .main_cat_link[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .main_cat_link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .main_cat_link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .main_cat_link.active .fas,
+        .main_cat_link.active .fab {
+            color: #fff;
+        }
+
+        .main_cat_link .fas,
+        .main_cat_link .fab {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .sub_topic_list {
+            list-style: none;
+            padding: 10px 0 10px 35px;
+            margin-top: 5px;
+        }
+
+        .sub_topic_list li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sub_topic_list li a:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .sub_topic_list li a.active {
+            background-color: #eef2ff;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .tutorial_content_area {
+            padding-left: 20px;
+        }
+
+        .tutorial_content_pane {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tutorial_content_pane.active {
+            display: block;
+        }
+
+        .tutorial_content_pane h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items: center">
+                <div class="logo_container">
+                    <a href="index.html" class="logo d-flex align-items-center"
+                        style="gap: 10px; text-decoration: none;">
+                        <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                            style="height:75px; width:auto; object-fit:contain;">
+                    </a>
+                </div>
+                <nav class="main_nav_container ml-auto">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="index.html">Home</a></li>
+                            <!-- <li class="main_nav_item active"><a href="tutorials.html">Tutorials</a></li>-->
+                            <li class="main_nav_item"><a href="courses.html">Courses</a></li>
+                            <li class="main_nav_item"><a href="interview-questions.html">Interview Questions</a></li>
+                            <li class="main_nav_item"><a href="about.html">About Us</a></li>
+                            <li class="main_nav_item"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="page_header">
+                <div class="container">
+                    <h1>Python Full Stack Developer Path</h1>
+                    <p>An end-to-end guide covering Python, Django, frontend technologies, and deployment.</p>
+                </div>
+            </div>
+
+            <div class="tutorials_section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <nav class="main_cat_nav_accordion">
+                                <ul class="main_cat_list">
+                                    <li>
+                                        <a href="#submenu-python-fundamentals" data-toggle="collapse"
+                                            aria-expanded="true" class="main_cat_link active">
+                                            <i class="fab fa-python"></i> Python Fundamentals <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-python-fundamentals" class="collapse show sub_topic_list">
+                                            <li><a href="#" class="active" data-target="content-py-intro">1.
+                                                    Introduction to Python</a></li>
+                                            <li><a href="#" data-target="content-py-setup">2. Setup & Environment</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-py-variables">3. Variables & Data
+                                                    Types</a></li>
+                                            <li><a href="#" data-target="content-py-control-flow">4. Control Flow</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-py-functions">5. Functions</a></li>
+                                            <li><a href="#" data-target="content-py-collections">6. Data Structures</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-py-strings">7. String Manipulation</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-py-modules">8. Modules and Packages</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-py-file-io">9. File I/O</a></li>
+                                            <li><a href="#" data-target="content-py-exceptions">10. Exception
+                                                    Handling</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-adv-python" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-level-up-alt"></i> Advanced Python <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-adv-python" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-advpy-oop">1. Object-Oriented
+                                                    Programming</a></li>
+                                            <li><a href="#" data-target="content-advpy-decorators">2. Decorators</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advpy-generators">3. Generators</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advpy-comprehensions">4. List
+                                                    Comprehensions</a></li>
+                                            <li><a href="#" data-target="content-advpy-lambda">5. Lambda Functions</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advpy-venv">6. Virtual Environments &
+                                                    Pip</a></li>
+                                            <li><a href="#" data-target="content-advpy-api">7. Working with APIs</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advpy-testing">8. Testing with
+                                                    PyTest</a></li>
+                                            <li><a href="#" data-target="content-advpy-concurrency">9. Concurrency</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-advpy-packaging">10. Packaging
+                                                    Projects</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-frontend" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fab fa-react"></i> Frontend <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-frontend" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-fe-html">1. HTML5</a></li>
+                                            <li><a href="#" data-target="content-fe-css">2. CSS3 & Flexbox</a></li>
+                                            <li><a href="#" data-target="content-fe-js-basics">3. JavaScript Basics</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fe-dom">4. DOM Manipulation</a></li>
+                                            <li><a href="#" data-target="content-fe-es6">5. ES6+ Features</a></li>
+                                            <li><a href="#" data-target="content-fe-api">6. APIs & Fetch</a></li>
+                                            <li><a href="#" data-target="content-fe-react-intro">7. Intro to React</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fe-components">8. React Components &
+                                                    Props</a></li>
+                                            <li><a href="#" data-target="content-fe-state">9. React State & Hooks</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-fe-routing">10. React Routing</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-django" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-server"></i> Backend with Django <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-django" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-dj-intro">1. Introduction to Django</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-dj-models">2. Models & ORM</a></li>
+                                            <li><a href="#" data-target="content-dj-views">3. Views & Templates</a></li>
+                                            <li><a href="#" data-target="content-dj-urls">4. URL Routing</a></li>
+                                            <li><a href="#" data-target="content-dj-admin">5. The Django Admin</a></li>
+                                            <li><a href="#" data-target="content-dj-forms">6. Forms</a></li>
+                                            <li><a href="#" data-target="content-dj-auth">7. User Authentication</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-dj-drf">8. Building REST APIs with
+                                                    DRF</a></li>
+                                            <li><a href="#" data-target="content-dj-static">9. Static Files & Media</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-dj-testing">10. Testing in Django</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-database" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-database"></i> Database <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-database" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-db-intro-sql">1. Introduction to
+                                                    SQL</a></li>
+                                            <li><a href="#" data-target="content-db-postgres">2. PostgreSQL Setup</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-ddl-dml">3. DDL & DML Commands</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-select">4. The SELECT Statement</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-joins">5. SQL Joins</a></li>
+                                            <li><a href="#" data-target="content-db-aggregation">6. Aggregate
+                                                    Functions</a></li>
+                                            <li><a href="#" data-target="content-db-subqueries">7. Subqueries</a></li>
+                                            <li><a href="#" data-target="content-db-indexes">8. Indexes</a></li>
+                                            <li><a href="#" data-target="content-db-normalization">9. Normalization</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-db-transactions">10. Transactions &
+                                                    ACID</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu-devops" data-toggle="collapse" aria-expanded="false"
+                                            class="main_cat_link collapsed">
+                                            <i class="fas fa-cloud-upload-alt"></i> Deployment & DevOps <i
+                                                class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul id="submenu-devops" class="collapse sub_topic_list">
+                                            <li><a href="#" data-target="content-do-git">1. Git & Version Control</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-do-intro-aws">2. Introduction to
+                                                    AWS</a></li>
+                                            <li><a href="#" data-target="content-do-deploy">3. Deploying with
+                                                    Gunicorn/Nginx</a></li>
+                                            <li><a href="#" data-target="content-do-docker">4. Docker Fundamentals</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-do-container">5. Containerizing a
+                                                    Django App</a></li>
+                                            <li><a href="#" data-target="content-do-ci-cd">6. CI/CD with GitHub
+                                                    Actions</a></li>
+                                            <li><a href="#" data-target="content-do-rds">7. Cloud Databases (AWS
+                                                    RDS)</a></li>
+                                            <li><a href="#" data-target="content-do-s3">8. Object Storage (AWS S3)</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-do-scaling">9. Scaling Concepts</a>
+                                            </li>
+                                            <li><a href="#" data-target="content-do-monitoring">10. Monitoring &
+                                                    Logging</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="tutorial_content_area">
+                                <div id="content-py-intro" class="tutorial_content_pane active">
+                                    <h2>1. Introduction to Python</h2>
+                                    <p>Python is a high-level, interpreted programming language known for its clear
+                                        syntax and readability. Created by Guido van Rossum and first released in 1991,
+                                        its design philosophy emphasizes code readability with its notable use of
+                                        significant indentation.</p>
+                                    <blockquote>Python is dynamically typed and garbage-collected. It supports multiple
+                                        programming paradigms, including structured (particularly, procedural),
+                                        object-oriented, and functional programming.</blockquote>
+                                    <pre><code># This is the traditional first program in Python.\nprint("Hello, World!")</code></pre>
+                                </div>
+                                <div id="content-py-setup" class="tutorial_content_pane">
+                                    <h2>2. Setup & Environment</h2>
+                                    <p>To start coding in Python, you need to install the Python interpreter from the
+                                        official website (python.org). It's highly recommended to use a virtual
+                                        environment for each project to manage dependencies separately. You can create
+                                        one using `python -m venv myenv`.</p>
+                                </div>
+                                <div id="content-py-variables" class="tutorial_content_pane">
+                                    <h2>3. Variables & Data Types</h2>
+                                    <p>In Python, you don't need to declare a variable's type. The type is inferred at
+                                        runtime. Core data types include `int` (integers), `float` (floating-point
+                                        numbers), `str` (strings), `bool` (True/False), and `list`.</p>
+                                </div>
+                                <div id="content-py-control-flow" class="tutorial_content_pane">
+                                    <h2>4. Control Flow</h2>
+                                    <p>Control the flow of your program using conditional statements (`if`, `elif`,
+                                        `else`) and loops (`for`, `while`). Python uses indentation to define blocks of
+                                        code, which is a key feature of the language.</p>
+                                </div>
+                                <div id="content-py-functions" class="tutorial_content_pane">
+                                    <h2>5. Functions</h2>
+                                    <p>Functions are reusable blocks of code defined with the `def` keyword. They help
+                                        organize your code, make it more readable, and reduce repetition. Functions can
+                                        take arguments and return values.</p>
+                                </div>
+                                <div id="content-py-collections" class="tutorial_content_pane">
+                                    <h2>6. Data Structures</h2>
+                                    <p>Python's built-in data structures are powerful. `Lists` are mutable, ordered
+                                        sequences. `Tuples` are immutable, ordered sequences. `Dictionaries` are
+                                        unordered collections of key-value pairs.</p>
+                                </div>
+                                <div id="content-py-strings" class="tutorial_content_pane">
+                                    <h2>7. String Manipulation</h2>
+                                    <p>Strings in Python are immutable and come with a rich set of methods for
+                                        manipulation, such as `.upper()`, `.lower()`, `.split()`, and `.join()`.
+                                        F-strings (formatted string literals) provide a concise way to embed expressions
+                                        inside string literals.</p>
+                                </div>
+                                <div id="content-py-modules" class="tutorial_content_pane">
+                                    <h2>8. Modules and Packages</h2>
+                                    <p>A module is a file containing Python definitions and statements. A package is a
+                                        way of structuring Python's module namespace by using "dotted module names". The
+                                        `import` statement is used to bring code from one module into another.</p>
+                                </div>
+                                <div id="content-py-file-io" class="tutorial_content_pane">
+                                    <h2>9. File I/O</h2>
+                                    <p>Python makes it easy to read from and write to files. The `open()` function is
+                                        used to get a file object. The `with` statement is the recommended way to handle
+                                        files as it automatically closes them for you.</p>
+                                </div>
+                                <div id="content-py-exceptions" class="tutorial_content_pane">
+                                    <h2>10. Exception Handling</h2>
+                                    <p>Handle errors gracefully using `try...except` blocks. This allows you to catch
+                                        runtime errors (exceptions) and execute code to handle them, preventing your
+                                        program from crashing.</p>
+                                </div>
+                                <div id="content-advpy-oop" class="tutorial_content_pane">
+                                    <h2>1. Object-Oriented Programming</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-decorators" class="tutorial_content_pane">
+                                    <h2>2. Decorators</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-generators" class="tutorial_content_pane">
+                                    <h2>3. Generators</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-comprehensions" class="tutorial_content_pane">
+                                    <h2>4. List Comprehensions</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-lambda" class="tutorial_content_pane">
+                                    <h2>5. Lambda Functions</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-venv" class="tutorial_content_pane">
+                                    <h2>6. Virtual Environments & Pip</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-api" class="tutorial_content_pane">
+                                    <h2>7. Working with APIs</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-testing" class="tutorial_content_pane">
+                                    <h2>8. Testing with PyTest</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-concurrency" class="tutorial_content_pane">
+                                    <h2>9. Concurrency</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-advpy-packaging" class="tutorial_content_pane">
+                                    <h2>10. Packaging Projects</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-html" class="tutorial_content_pane">
+                                    <h2>1. HTML5</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-css" class="tutorial_content_pane">
+                                    <h2>2. CSS3 & Flexbox</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-js-basics" class="tutorial_content_pane">
+                                    <h2>3. JavaScript Basics</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-dom" class="tutorial_content_pane">
+                                    <h2>4. DOM Manipulation</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-es6" class="tutorial_content_pane">
+                                    <h2>5. ES6+ Features</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-api" class="tutorial_content_pane">
+                                    <h2>6. APIs & Fetch</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-react-intro" class="tutorial_content_pane">
+                                    <h2>7. Intro to React</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-components" class="tutorial_content_pane">
+                                    <h2>8. React Components & Props</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-state" class="tutorial_content_pane">
+                                    <h2>9. React State & Hooks</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-fe-routing" class="tutorial_content_pane">
+                                    <h2>10. React Routing</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-intro" class="tutorial_content_pane">
+                                    <h2>1. Introduction to Django</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-models" class="tutorial_content_pane">
+                                    <h2>2. Models & ORM</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-views" class="tutorial_content_pane">
+                                    <h2>3. Views & Templates</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-urls" class="tutorial_content_pane">
+                                    <h2>4. URL Routing</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-admin" class="tutorial_content_pane">
+                                    <h2>5. The Django Admin</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-forms" class="tutorial_content_pane">
+                                    <h2>6. Forms</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-auth" class="tutorial_content_pane">
+                                    <h2>7. User Authentication</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-drf" class="tutorial_content_pane">
+                                    <h2>8. Building REST APIs with DRF</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-static" class="tutorial_content_pane">
+                                    <h2>9. Static Files & Media</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-dj-testing" class="tutorial_content_pane">
+                                    <h2>10. Testing in Django</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-intro-sql" class="tutorial_content_pane">
+                                    <h2>1. Introduction to SQL</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-postgres" class="tutorial_content_pane">
+                                    <h2>2. PostgreSQL Setup</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-ddl-dml" class="tutorial_content_pane">
+                                    <h2>3. DDL & DML Commands</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-select" class="tutorial_content_pane">
+                                    <h2>4. The SELECT Statement</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-joins" class="tutorial_content_pane">
+                                    <h2>5. SQL Joins</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-aggregation" class="tutorial_content_pane">
+                                    <h2>6. Aggregate Functions</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-subqueries" class="tutorial_content_pane">
+                                    <h2>7. Subqueries</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-indexes" class="tutorial_content_pane">
+                                    <h2>8. Indexes</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-normalization" class="tutorial_content_pane">
+                                    <h2>9. Normalization</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-db-transactions" class="tutorial_content_pane">
+                                    <h2>10. Transactions & ACID</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-git" class="tutorial_content_pane">
+                                    <h2>1. Git & Version Control</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-intro-aws" class="tutorial_content_pane">
+                                    <h2>2. Introduction to AWS</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-deploy" class="tutorial_content_pane">
+                                    <h2>3. Deploying with Gunicorn/Nginx</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-docker" class="tutorial_content_pane">
+                                    <h2>4. Docker Fundamentals</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-container" class="tutorial_content_pane">
+                                    <h2>5. Containerizing a Django App</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-ci-cd" class="tutorial_content_pane">
+                                    <h2>6. CI/CD with GitHub Actions</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-rds" class="tutorial_content_pane">
+                                    <h2>7. Cloud Databases (AWS RDS)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-s3" class="tutorial_content_pane">
+                                    <h2>8. Object Storage (AWS S3)</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-scaling" class="tutorial_content_pane">
+                                    <h2>9. Scaling Concepts</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                                <div id="content-do-monitoring" class="tutorial_content_pane">
+                                    <h2>10. Monitoring & Logging</h2>
+                                    <p>Content for this topic will appear here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+       <footer class="footer">
+			<div class="container">
+				<div class="footer_content">
+					<div class="row">
+
+						<div class="col-lg-4 footer_col">
+							<div class="logo_container">
+								<div class="logo">
+									<img src="images/AKSHLOGO.png" alt="AKSH Java Hub Logo">
+									<span>AKSH JAVA HUB</span>
+								</div>
+							</div>
+							<p class="footer_about_text">
+								Your comprehensive guide to mastering Java. From core concepts to advanced frameworks,
+								we provide the resources you need to excel in your tech journey.
+							</p>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Quick Links</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Tutorials</a></li>
+								<li><a href="#">Courses</a></li>
+								<li><a href="#">About Us</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-2 col-md-6 footer_col">
+							<div class="footer_column_title">Resources</div>
+							<ul class="footer_column_list">
+								<li><a href="#">Testimonials</a></li>
+								<li><a href="#">Community</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-4 footer_col">
+							<div class="footer_column_title">Stay Updated</div>
+							<p class="footer_about_text">Subscribe to our newsletter to get the latest tutorials and
+								news delivered to your inbox.</p>
+							<form action="#" class="newsletter_form">
+								<input type="email" placeholder="Your email address" required>
+								<button type="submit">
+									<i class="fas fa-arrow-right"></i>
+								</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+					<div class="footer_copyright">
+						<span>&copy;
+							<script>document.write(new Date().getFullYear());</script> AKSH Java Hub. All rights
+							reserved.
+						</span>
+					</div>
+					<div class="footer_social_contact ml-sm-auto">
+						<ul class="social_contact_list">
+							<li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+							<li><a href="#" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Part 1: Handle clicks on MAIN categories
+            $('.main_cat_link').on('click', function (e) {
+                e.preventDefault();
+                var targetCollapse = $(this).attr('href');
+                if (!$(this).hasClass('active')) {
+                    $(targetCollapse).find('a').first().click();
+                }
+                $('.main_cat_link').removeClass('active');
+                $(this).addClass('active');
+                $('.sub_topic_list').not(targetCollapse).collapse('hide');
+                $(targetCollapse).collapse('show');
+            });
+
+            // Part 2: Handle clicks on SUB-TOPICS
+            $('.sub_topic_list a').on('click', function (e) {
+                e.preventDefault();
+                $('.tutorial_content_pane').removeClass('active');
+                $('.sub_topic_list a').removeClass('active');
+                $(this).addClass('active');
+                var targetContent = '#' + $(this).data('target');
+                $(targetContent).addClass('active');
+            });
+
+            // Initialize the page
+            $('.main_cat_list li:first-child .main_cat_link').trigger('click');
+        });
+    </script>
+
+</body>
+
+</html>
