@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Chat - AKSH Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Paste the exact same CSS from your dashboard.html here */
+        body { font-family: 'Poppins', sans-serif; background-color: #f4f7f6; }
+        .dashboard-wrapper { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: #232d3b; color: #fff; position: fixed; height: 100%; z-index: 1000; }
+        .sidebar-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid #3c4d66; }
+        .sidebar-header img { height: 60px; margin-bottom: 0.5rem; }
+        .sidebar-header h3 { font-weight: 600; font-size: 1.2rem; margin: 0; }
+        .sidebar-nav { padding: 1rem 0; }
+        .sidebar-nav a { display: flex; align-items: center; padding: 0.9rem 1.5rem; color: #adb5bd; text-decoration: none; transition: all 0.3s; font-weight: 500; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: #4F46E5; color: #fff; border-left: 4px solid #fff; padding-left: calc(1.5rem - 4px); }
+        .sidebar-nav a i { margin-right: 1rem; font-size: 1.1rem; }
+        .logout-link { position: absolute; bottom: 0; width: 100%; }
+        .main-content { flex-grow: 1; margin-left: 260px; padding: 2rem; }
+        .full-height-chat { height: calc(100vh - 150px); } /* Adjust height as needed */
+        /* Paste chat-box styles from dashboard.html here */
+        .chat-box { background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; }
+        .chat-header { padding: 1rem; border-bottom: 1px solid #eee; font-weight: 600; }
+        .chat-messages { flex-grow: 1; padding: 1rem; overflow-y: auto; }
+        .message { margin-bottom: 1rem; display: flex; }
+        .message.admin .message-content { background-color: #e9ecef; }
+        .message.student { justify-content: flex-end; }
+        .message.student .message-content { background-color: #4F46E5; color: #fff; }
+        .message-content { padding: 0.75rem 1rem; border-radius: 15px; max-width: 80%; }
+        .chat-input { display: flex; padding: 1rem; border-top: 1px solid #eee; }
+        .chat-input input { border-right: none; border-radius: 20px 0 0 20px; }
+        .chat-input button { border-radius: 0 20px 20px 0; background-color: #4F46E5; border-color: #4F46E5; }
+        @media (max-width: 992px) { .sidebar { margin-left: -260px; } .main-content { margin-left: 0; } .sidebar.active { margin-left: 0; } }
+    </style>
+</head>
+<body>
+<div class="dashboard-wrapper">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/AKSHLOGO.png" alt="Logo">
+            <h3>AKSH Hub</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="my-courses.html"><i class="fas fa-book-open"></i> My Courses</a>
+            <a href="community-chat.html" class="active"><i class="fas fa-comments"></i> Community Chat</a>
+            <a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a>
+            <a href="#" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1 class="mb-4">Community Chat</h1>
+        <div class="chat-box full-height-chat">
+             <div class="chat-header">
+                <i class="fas fa-comments"></i> Chat with Admin and Peers
+            </div>
+            <div class="chat-messages">
+                <div class="message admin">
+                    <div class="message-content">
+                        Hello! Welcome to the course. Ask any doubts you have here.
+                    </div>
+                </div>
+                <div class="message student">
+                    <div class="message-content">
+                        Hi! In Lesson 2, I'm having trouble with the Maven setup. Can you help?
+                    </div>
+                </div>
+                 <div class="message admin">
+                    <div class="message-content">
+                        Of course! Could you please share the error message you are seeing?
+                    </div>
+                </div>
+                </div>
+            <div class="chat-input">
+                <input type="text" class="form-control" placeholder="Type your message...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

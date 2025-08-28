@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Checkout - AKSH Java Hub</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Checkout Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <style>
+        .checkout-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary,
+        .payment-details {
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        .pay-btn {
+            background-color: #4F46E5;
+            color: white;
+            font-weight: 600;
+        }
+
+        .pay-btn:hover {
+            background-color: #4338CA;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header d-flex flex-row">
+        <div class="header_content d-flex flex-row align-items-center">
+            <div class="logo_container d-flex align-items-center" style="height: 64px;">
+                <a href="index.html" class="logo d-flex align-items-center" style="gap: 10px; text-decoration: none;">
+                    <img src="images/AKSHLOGO.png" alt="AKSH JAVA HUB Logo"
+                        style="height:75px; width:auto; object-fit:contain;">
+                </a>
+            </div>
+            <nav class="main_nav_container">
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="checkout-container">
+            <h2 class="text-center mb-4">Complete Your Purchase</h2>
+            <div class="row">
+                <div class="col-md-6 order-md-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Order Summary</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0" id="course-name">Java Full Stack Development</h6>
+                                <small class="text-muted">Bestseller Course</small>
+                            </div>
+                            <span class="text-muted" id="course-price">$49</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            <strong id="total-price">$49</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h4 class="mb-3">Payment Details</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="fullName">Full name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="John M. Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cc-number">Credit card number</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="**** **** **** ****"
+                                required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="cc-expiration">Expiration</label>
+                                <input type="text" class="form-control" id="cc-expiration" placeholder="MM / YY"
+                                    required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="cc-cvv">CVV</label>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <button class="btn btn-lg btn-block pay-btn" type="button"
+                            onclick="window.location.href='dashboard.html'">
+                            Pay Now
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // This simple script reads the course details from the URL and populates the summary
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const courseName = params.get('course') || 'Java Full Stack Development';
+            const coursePrice = params.get('price') || '49';
+
+            document.getElementById('course-name').textContent = courseName;
+            document.getElementById('course-price').textContent = `$${coursePrice}`;
+            document.getElementById('total-price').textContent = `$${coursePrice}`;
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - AKSH Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Paste the exact same CSS from your dashboard.html here */
+        body { font-family: 'Poppins', sans-serif; background-color: #f4f7f6; }
+        .dashboard-wrapper { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: #232d3b; color: #fff; position: fixed; height: 100%; z-index: 1000; }
+        .sidebar-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid #3c4d66; }
+        .sidebar-header img { height: 60px; margin-bottom: 0.5rem; }
+        .sidebar-header h3 { font-weight: 600; font-size: 1.2rem; margin: 0; }
+        .sidebar-nav { padding: 1rem 0; }
+        .sidebar-nav a { display: flex; align-items: center; padding: 0.9rem 1.5rem; color: #adb5bd; text-decoration: none; transition: all 0.3s; font-weight: 500; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: #4F46E5; color: #fff; border-left: 4px solid #fff; padding-left: calc(1.5rem - 4px); }
+        .sidebar-nav a i { margin-right: 1rem; font-size: 1.1rem; }
+        .logout-link { position: absolute; bottom: 0; width: 100%; }
+        .main-content { flex-grow: 1; margin-left: 260px; padding: 2rem; }
+        .profile-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 2rem;
+        }
+        @media (max-width: 992px) { .sidebar { margin-left: -260px; } .main-content { margin-left: 0; } .sidebar.active { margin-left: 0; } }
+    </style>
+</head>
+<body>
+<div class="dashboard-wrapper">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/AKSHLOGO.png" alt="Logo">
+            <h3>AKSH Hub</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="my-courses.html"><i class="fas fa-book-open"></i> My Courses</a>
+            <a href="community-chat.html"><i class="fas fa-comments"></i> Community Chat</a>
+            <a href="profile.html" class="active"><i class="fas fa-user-circle"></i> Profile</a>
+            <a href="#" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1 class="mb-4">My Profile</h1>
+        <div class="profile-card">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputFirstName">First Name</label>
+                        <input type="text" class="form-control" id="inputFirstName" value="Student">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="text" class="form-control" id="inputLastName" value="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email Address</label>
+                    <input type="email" class="form-control" id="inputEmail" value="student@example.com">
+                </div>
+                <hr>
+                <h5 class="mt-4 mb-3">Change Password</h5>
+                 <div class="form-group">
+                    <label for="inputCurrentPassword">Current Password</label>
+                    <input type="password" class="form-control" id="inputCurrentPassword">
+                </div>
+                <div class="form-group">
+                    <label for="inputNewPassword">New Password</label>
+                    <input type="password" class="form-control" id="inputNewPassword">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
